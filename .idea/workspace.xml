@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="37dabbce-9dc0-48a3-aecf-6006f7529366" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/Card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/Hero.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/Navbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/ui/Spotlight.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/ui/background-boxes.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/ui/background-gradient.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/component/ui/navbar-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/lib/utils.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/public/globe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/public/window.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rp/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/railway/scheduling/SchedulingApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/railway/scheduling/SchedulingApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "PralayeshMukherjee"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PralayeshMukherjee/Railway-SIH2025.git",
+    "accountId": "ef485eaf-a2e9-4579-a9d7-659936c6747a"
+  }
+}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="32PGR3KagjzNz8ugGZM85YFzLnS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37dabbce-9dc0-48a3-aecf-6006f7529366" name="Changes" comment="" />
+      <created>1757314783747</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757314783747</updated>
+    </task>
+    <servers />
+  </component>
+</project>
