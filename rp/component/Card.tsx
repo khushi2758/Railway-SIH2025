@@ -32,7 +32,15 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 export const Card: React.FC<Data> = ({ title, persentage }) => {
   return (
-    <BackgroundGradient className="rounded-2xl shadow-lg max-w-sm w-full p-6 sm:p-8 bg-white dark:bg-zinc-900 transition hover:scale-[1.02]">
+
+    <BackgroundGradient className=" max-w-sm w-full sm:p-8 bg-white dark:bg-zinc-900 transition hover:scale-[1.02] 
+    
+      bg-gradient-to-br from-zinc-900/70 to-zinc-800/60 
+      border border-cyan-400/20 backdrop-blur-md overflow-hidden
+      shadow-[0_0_25px_rgba(34,211,238,0.12)] hover:shadow-[0_0_35px_rgba(34,211,238,0.3)] 
+       duration-300
+    ">
+      
       {/* Title */}
       <p className="text-lg sm:text-xl font-light tracking-widest text-cyan-300 mb-6">
         {title}
@@ -57,6 +65,7 @@ export const Card: React.FC<Data> = ({ title, persentage }) => {
           {persentage}%
         </button>
       </div>
+      
     </BackgroundGradient>
   );
 };

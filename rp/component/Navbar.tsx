@@ -57,7 +57,7 @@ export function NavbarDemo() {
   }, []);
 
   return (
-    <div className="relative  h-10 pb-2.5">
+    <div className="  h-10 pb-2.5 sticky top-0">
       <Navbar >
         {/* Desktop Navigation */}
         <NavBody>
