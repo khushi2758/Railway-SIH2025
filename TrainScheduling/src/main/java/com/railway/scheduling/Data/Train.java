@@ -13,6 +13,6 @@ public class Train {
     private int speed;
     private int priority;
     private int currentLocation;
-    private int arraivalTime;
+    private int arrivalTime;
     private int departureTime;
 }
