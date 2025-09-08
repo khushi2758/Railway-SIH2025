@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public class SchedulerService {
     public int scheduleTrains(List<Train> trains, List<Platform> platforms){
-
+        int numberOfTrains = trains.size();
+        int platformCount = platforms.size();
     }
 }
