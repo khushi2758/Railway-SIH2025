@@ -4,7 +4,7 @@ import { NavbarDemo } from "./Navbar";
 import { Card } from "./Card";
 import { BoxesCore } from "./ui/background-boxes";
 import { Expand } from 'lucide-react';
-
+import CustomizedDialogs from "./ui/Dialogbox";
 import Structural from "./pages/Structural";
 import Overlay from "../component/Overlay";
 import DataTable from "./ui/Table";
@@ -51,6 +51,7 @@ const Hero = () => {
             </h2>
      
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              
                       {isOpen ? (
               <Overlay isOpen={isOpen} onClose={toggleOverlay}>
                 <div
@@ -97,9 +98,9 @@ const Hero = () => {
                     Prev Record  {/*<------- Track Model Render */}
                     < button className="text-violet-400 hover:text-violet-200 font-semibold " onClick={toggleOverlay}>
                            <Expand className="inline-block ml-2 mb-1" size={18} />
-
+                            
                     </button>
-                    
+                    {/*<CustomizedDialogs />*/}
                   </p>
                 </div>
               </div>
