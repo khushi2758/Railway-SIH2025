@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   Navbar,
   NavBody,
@@ -13,26 +14,26 @@ import {
 import { useState,useEffect } from "react";
 
 export function NavbarDemo() {
-  const navItems = [
-    {
+  const navItems = [   
+  {
       name: "Structural",
-      link: "#features",
+      link: "/Structural", 
     },
     {
       name: "Rail",
-      link: "#pricing",
+      link: "/Rail",
     },
     {
       name: "Sleeper",
-      link: "#contact",
+      link: "/Sleeper",
     },
-     {
+    {
       name: "Ballast",
-      link: "#features",
+      link: "/Ballast",
     },
     {
       name: "Environmental",
-      link: "#pricing",
+      link: "/Environmental",
     },
 
   ];
@@ -85,14 +86,14 @@ export function NavbarDemo() {
             onClose={() => setIsMobileMenuOpen(false)}
           >
             {navItems.map((item, idx) => (
-              <a
+              <Link
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="relative text-neutral-600 dark:text-neutral-300"
               >
                 <span className="block">{item.name}</span>
-              </a>
+              </Link>
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton

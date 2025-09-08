@@ -2,6 +2,7 @@ import React from "react";
 import { NavbarDemo } from "./Navbar";
 import { Card } from "./Card";
 import { BoxesCore } from "./ui/background-boxes";
+import Structural from "./pages/Structural";
 
 const Hero = () => {
   return (
@@ -28,8 +29,11 @@ const Hero = () => {
               <Card title= "Ballast"persentage={95}/>
               <Card title="Environmental" persentage={99} />
             </div>
+            <Structural />
           </div>
+            
         </div>
+      
       </div>
     </>
   );
