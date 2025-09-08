@@ -14,5 +14,7 @@ public class SchedulerService {
         int platformCount = platforms.size();
         PriorityQueue<State> queue = new PriorityQueue<>((s1,s2)-> Integer.compare(s1.getTotalDelay(),s2.getTotalDelay()));
         Map<State, Integer> dp = new HashMap<>();
+//      Initial state: all platform free, no trains scheduled
+        int[] initialAvailable = new int[platformCount];
     }
 }
