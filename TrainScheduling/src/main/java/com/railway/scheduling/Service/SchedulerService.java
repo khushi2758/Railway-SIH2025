@@ -20,5 +20,8 @@ public class SchedulerService {
         State initialState = new State(initialAvailable,0,0);
         queue.add(initialState);
         dp.put(initialState,0);
+        while(!queue.isEmpty()){
+
+        }
     }
 }
