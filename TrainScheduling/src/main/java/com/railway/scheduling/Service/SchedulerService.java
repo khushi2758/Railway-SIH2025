@@ -18,6 +18,6 @@ public class SchedulerService {
         int[] initialAvailable = new int[platformCount];
         Arrays.fill(initialAvailable,0);
         State initialState = new State(initialAvailable,0,0);
-
+        queue.add(initialState);
     }
 }
