@@ -1,5 +1,8 @@
 package com.railway.scheduling.Data;
 
+import lombok.Data;
+
+@Data
 public class Platform {
     private int id;
     private int trackAvailability; // 0 = empty, 1 = occupied
