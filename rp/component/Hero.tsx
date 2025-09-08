@@ -4,30 +4,82 @@ import { Card } from "./Card";
 import { BoxesCore } from "./ui/background-boxes";
 
 const Hero = () => {
+  {/* Hehehehehee Make it Smooth */ }
+  const data = [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ];
+
   return (
     <>
       <div className="mt-5">
-        <div className="absolute flex h-screen w-full items-center  bg-white dark:bg-black  item-center justify-center top-0 left-0">
+        {/* Background effect */}
+        <div className="absolute flex h-screen w-full items-center bg-white dark:bg-black justify-center top-0 left-0">
           <BoxesCore />
-          {/* Radial gradient for the container to give a faded look */}
           <div
-            className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]
-              dark:bg-black"
+            className="pointer-events-none absolute inset-0 flex items-center justify-center 
+            bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"
           />
         </div>
+
+        {/* Navbar */}
         <NavbarDemo />
+
+        {/* Hero content */}
         <div className="flex justify-center relative my-20 text-amber-50 z-10">
-          <div className="max-w-[89vw] flex flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
-            <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80 mb-6">
-              RAILTRACK HEALTH MONITOR SYATEM
+          <div className="max-w-[95vw] w-full">
+            <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 mb-6">
+              RAILTRACK HEALTH MONITOR SYSTEM
             </h2>
-            <div className="flex flex-row-reverse gap-7  items-center justify-center-safe">
-              <Card  title="Structural" persentage={80}/>
-              <Card title= "Rail" persentage={90}/>
-              <Card title="Sleeper" persentage={70}/>
-              <Card title= "Ballast"persentage={95}/>
-              <Card title="Environmental" persentage={99} />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-3 gap-6">
+                {data.map((item, index) => (
+                  <Card
+                    key={index}
+                    title={item.title}
+                    persentage={item.persentage}
+                  />
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-8">
+                <div
+                  className="relative rounded-2xl h-[250px] flex items-center justify-center 
+      bg-gradient-to-br from-zinc-900/70 to-zinc-800/60 
+      border border-cyan-400/20 backdrop-blur-md overflow-hidden
+      shadow-[0_0_25px_rgba(34,211,238,0.12)] hover:shadow-[0_0_35px_rgba(34,211,238,0.3)] 
+      transition duration-300"
+                >
+                  <div className="absolute inset-0 rounded-2xl border border-cyan-500/30 animate-pulse pointer-events-none" />
+                  <p className="text-center font-light tracking-widest text-cyan-300 text-lg">
+                    Type of Track <br /> Model Render <br />  {/* <------- Track Model Render */}
+                    <span className="font-semibold text-cyan-400">
+                      [Name of Type]
+                    </span>
+                  </p>
+                </div>
+                <div
+                  className="relative rounded-full h-[150px] flex items-center justify-center 
+      bg-gradient-to-r from-zinc-900/70 to-zinc-800/60 
+      border border-violet-400/20 backdrop-blur-md overflow-hidden
+      shadow-[0_0_25px_rgba(167,139,250,0.15)] hover:shadow-[0_0_35px_rgba(167,139,250,0.35)]
+      transition duration-300"
+                >
+                  <p className="text-violet-300 font-medium tracking-wide text-lg">
+                    Prev Record  {/*<------- Track Model Render */}
+                  </p>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
