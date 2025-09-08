@@ -16,5 +16,6 @@ public class SchedulerService {
         Map<State, Integer> dp = new HashMap<>();
 //      Initial state: all platform free, no trains scheduled
         int[] initialAvailable = new int[platformCount];
+        Arrays.fill(initialAvailable,0);
     }
 }
