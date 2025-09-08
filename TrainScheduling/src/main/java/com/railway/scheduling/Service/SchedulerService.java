@@ -19,5 +19,6 @@ public class SchedulerService {
         Arrays.fill(initialAvailable,0);
         State initialState = new State(initialAvailable,0,0);
         queue.add(initialState);
+        dp.put(initialState,0);
     }
 }
