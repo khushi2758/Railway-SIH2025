@@ -1,55 +1,62 @@
 "use client";
 import React from "react";
 import { BackgroundGradient } from "./ui/background-gradient";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
+import Stack from "@mui/material/Stack";
+import LinearProgress, {
+  linearProgressClasses,
+} from "@mui/material/LinearProgress";
 
-import Stack from '@mui/material/Stack';
-import { IconAppWindow } from "@tabler/icons-react";
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
- interface Data {
-    title: string;
-    persentage?: number;
-     }
+interface Data {
+  title: string;
+  persentage?: number;
+}
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {
     backgroundColor: theme.palette.grey[200],
-    ...theme.applyStyles('dark', {
+    ...theme.applyStyles("dark", {
       backgroundColor: theme.palette.grey[800],
     }),
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: '#788f8e',
-    ...theme.applyStyles('dark', {
-      backgroundColor: '#308fe8',
+    backgroundColor: "#788f8e",
+    ...theme.applyStyles("dark", {
+      backgroundColor: "#308fe8",
     }),
   },
 }));
 
 export const Card: React.FC<Data> = ({ title, persentage }) => {
   return (
-    
-    <div>
-      <BackgroundGradient className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-white w-25% dark:bg-zinc-900">
-       
-        <p className="text-base sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
-          
-{title}{" "}Component
-        </p>
-              <Stack spacing={2} sx={{ flexGrow: 1 }}>
- 
-      <br />
-      <BorderLinearProgress variant="determinate" value={persentage} />
-    </Stack>
-       
-        <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
-          <span>{persentage} % </span>
-          
+    <BackgroundGradient className="rounded-2xl shadow-lg max-w-sm w-full p-6 sm:p-8 bg-white dark:bg-zinc-900 transition hover:scale-[1.02]">
+      {/* Title */}
+      <p className="text-lg sm:text-xl font-light tracking-widest text-cyan-300 mb-6">
+        {title}
+      </p>
+
+      {/* Progress Bar */}
+      <Stack spacing={2} sx={{ flexGrow: 1 }}>
+        <BorderLinearProgress variant="determinate" value={persentage} />
+      </Stack>
+
+      {/* Percentage Display */}
+      <div className="flex justify-end mt-6">
+        <button
+          className="px-5 py-2 rounded-full 
+    bg-gradient-to-r from-cyan-500/20 to-cyan-400/10 
+    border border-cyan-400/30 
+    text-cyan-300 text-sm font-medium tracking-wide 
+    shadow-[0_0_15px_rgba(34,211,238,0.25)] 
+    hover:shadow-[0_0_25px_rgba(34,211,238,0.45)] 
+    backdrop-blur-md transition duration-300"
+        >
+          {persentage}%
         </button>
-      </BackgroundGradient>
-    </div>
+      </div>
+    </BackgroundGradient>
   );
-}
+};
