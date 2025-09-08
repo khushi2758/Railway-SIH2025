@@ -17,5 +17,7 @@ public class SchedulerService {
 //      Initial state: all platform free, no trains scheduled
         int[] initialAvailable = new int[platformCount];
         Arrays.fill(initialAvailable,0);
+        State initialState = new State(initialAvailable,0,0);
+
     }
 }
