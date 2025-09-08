@@ -21,7 +21,7 @@ public class SchedulerService {
         queue.add(initialState);
         dp.put(initialState,0);
         while(!queue.isEmpty()){
-
+            State current = queue.poll();
         }
     }
 }
