@@ -15,6 +15,6 @@ public class ScheduleController {
     private SchedulerService schedulerService;
     @PostMapping("/assign")
     public int assignPlatforms(@RequestBody PlatformRequest platformRequest){
-
+        return schedulerService.scheduleTrains(platformRequest.getTrains(),platformRequest.getNumPlatforms());
     }
 }
