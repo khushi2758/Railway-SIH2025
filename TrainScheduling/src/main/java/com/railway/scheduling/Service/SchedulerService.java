@@ -18,5 +18,7 @@ public class SchedulerService {
             }
             return Integer.compare(t1.getArrivalTime(),t1.getArrivalTime());
         });
+        int[] platformTimes = new int[numberOfPlatform];
+        return dp(trains,platformTimes,0);
     }
 }
