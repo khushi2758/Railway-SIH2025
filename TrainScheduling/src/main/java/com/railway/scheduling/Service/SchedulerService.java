@@ -33,16 +33,15 @@ public class SchedulerService {
         memo.put(key,minDelay);
         return minDelay;
     }
-    public int scheduleTrains(List<Train> trains, List<Platform> platforms){
+    public int scheduleTrains(List<Train> trains, int platforms){
         int numbersOfTrains = trains.size();
-        int numberOfPlatform = platforms.size();
         trains.sort((t1,t2)->{
             if(t1.getPriority()!=t2.getPriority()){
                 return Integer.compare(t1.getPriority(),t2.getPriority());
             }
             return Integer.compare(t1.getArrivalTime(),t1.getArrivalTime());
         });
-        int[] platformTimes = new int[numberOfPlatform];
+        int[] platformTimes = new int[platforms];
         return dp(trains,platformTimes,0);
     }
 }
