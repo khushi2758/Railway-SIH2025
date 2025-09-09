@@ -12,6 +12,11 @@ public class SchedulerService {
     public int scheduleTrains(List<Train> trains, List<Platform> platforms){
         int numbersOfTrains = trains.size();
         int numberOfPlatform = platforms.size();
-
+        trains.sort((t1,t2)->{
+            if(t1.getPriority()!=t2.getPriority()){
+                return Integer.compare(t1.getPriority(),t2.getPriority());
+            }
+            return Integer.compare(t1.getArrivalTime(),t1.getArrivalTime());
+        });
     }
 }
