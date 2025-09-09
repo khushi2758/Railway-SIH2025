@@ -16,4 +16,5 @@ public class Train {
     private int arrivalTime;
     private int departureTime;
     private int dwellTime;
+    private int blockOccupency;
 }
