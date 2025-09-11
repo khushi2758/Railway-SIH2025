@@ -19,5 +19,6 @@ public class ScheduleController {
     @PostMapping("/assign")
     public ResponseEntity<Map<String,String>> assignPlatforms(@RequestBody PlatformRequest platformRequest){
         int res = schedulerService.scheduleTrains(platformRequest.getTrains(),platformRequest.getNumPlatforms());
+        return ResponseEntity.ok(Map.of("toal delay",String.valueOf(res)));
     }
 }
