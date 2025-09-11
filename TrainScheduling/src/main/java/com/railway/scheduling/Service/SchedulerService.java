@@ -27,7 +27,7 @@ public class SchedulerService {
             int waitTime = startTime - train.getArrivalTime();
             int[] newPlatFormTimes = Arrays.copyOf(platformTimes,platformTimes.length);
             newPlatFormTimes[p] = startTime+train.getDwellTime();
-            int totalDelay = waitTime + dp(trains,newPlatFormTimes,trainIndex);
+            int totalDelay = waitTime + dp(trains,newPlatFormTimes,trainIndex+1);
             minDelay = Math.min(minDelay,totalDelay);
         }
         memo.put(key,minDelay);
