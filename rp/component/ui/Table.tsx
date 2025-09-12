@@ -60,15 +60,62 @@ const rows = [
 ];
 
   const DUMMY_DATA = [
-    { title: "Structural", persentage: 80 },
-    { title: "Rail", persentage: 90 },
-    { title: "Sleeper", persentage: 70 },
-    { title: "Ballast", persentage: 95 },
-    { title: "Environmental", persentage: 99 },
-    { title: "Bridge", persentage: 88 },
-    { title: "Switch", persentage: 76 },
-    { title: "Signal", persentage: 85 },
-    { title: "Track Bed", persentage: 92 },
+    [
+      { title: "Structural", persentage: 80 },
+      { title: "Rail", persentage: 90 },
+      { title: "Sleeper", persentage: 70 },
+      { title: "Ballast", persentage: 95 },
+      { title: "Environmental", persentage: 99 },
+      { title: "Bridge", persentage: 88 },
+      { title: "Switch", persentage: 76 },
+      { title: "Signal", persentage: 85 },
+      { title: "Track Bed", persentage: 92 }
+    ],
+      [
+      { title: "Structural", persentage: 80 },
+      { title: "Rail", persentage: 90 },
+      { title: "Sleeper", persentage: 70 },
+      { title: "Ballast", persentage: 95 },
+      { title: "Environmental", persentage: 99 },
+      { title: "Bridge", persentage: 88 },
+      { title: "Switch", persentage: 76 },
+      { title: "Signal", persentage: 85 },
+      { title: "Track Bed", persentage: 92 }
+    ],
+     [
+      { title: "Structural", persentage: 80 },
+      { title: "Rail", persentage: 90 },
+      { title: "Sleeper", persentage: 70 },
+      { title: "Ballast", persentage: 95 },
+      { title: "Environmental", persentage: 99 },
+      { title: "Bridge", persentage: 88 },
+      { title: "Switch", persentage: 76 },
+      { title: "Signal", persentage: 85 },
+      { title: "Track Bed", persentage: 92 }
+    ],
+     [
+      { title: "Structural", persentage: 80 },
+      { title: "Rail", persentage: 90 },
+      { title: "Sleeper", persentage: 70 },
+      { title: "Ballast", persentage: 95 },
+      { title: "Environmental", persentage: 99 },
+      { title: "Bridge", persentage: 88 },
+      { title: "Switch", persentage: 76 },
+      { title: "Signal", persentage: 85 },
+      { title: "Track Bed", persentage: 92 }
+    ],
+     [
+      { title: "Structural", persentage: 80 },
+      { title: "Rail", persentage: 90 },
+      { title: "Sleeper", persentage: 70 },
+      { title: "Ballast", persentage: 95 },
+      { title: "Environmental", persentage: 99 },
+      { title: "Bridge", persentage: 88 },
+      { title: "Switch", persentage: 76 },
+      { title: "Signal", persentage: 85 },
+      { title: "Track Bed", persentage: 92 }
+    ]
+
   ];
 
 export default function StickyHeadTable() {
@@ -88,12 +135,19 @@ export default function StickyHeadTable() {
   };
 
   function handleFormClick(row: Data) {
-    DUMMY_DATA.map((item, index) => {
-      if (index === row.idx - 1) {
-        setSelectedCard(<Card title={item.title} persentage={item.persentage} />);
-      }
-    });
+  const cardArray = DUMMY_DATA[row.idx - 1]; // Get the array for the selected row
+  if (cardArray) {
+    setSelectedCard(
+      <div className="grid grid-cols-3" >
+        {cardArray.map((item, i) => (
+          <Card key={i} title={item.title} persentage={item.persentage} />
+        ))}
+      </div>
+    );
+  } else {
+    setSelectedCard(null);
   }
+}
   return (
     <>
       <Paper
