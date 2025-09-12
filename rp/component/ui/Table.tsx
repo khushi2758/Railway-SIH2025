@@ -9,7 +9,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Card } from "../Card";
 
-import  CardDetails  from "../CardDetails";
+
 
 
 
