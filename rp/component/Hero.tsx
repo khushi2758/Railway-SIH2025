@@ -3,14 +3,16 @@ import React, { useState, useRef } from "react";
 import { NavbarDemo } from "./Navbar";
 import { Card } from "./Card";
 import { BoxesCore } from "./ui/background-boxes";
-import { Expand } from 'lucide-react';
+import { Expand } from "lucide-react";
 import CustomizedDialogs from "./ui/Dialogbox";
 import Structural from "./pages/Structural";
 import Overlay from "../component/Overlay";
 import DataTable from "./ui/Table";
 //import CartModal from "./CartModel";
 const Hero = () => {
-  {/* Hehehehehee Make it Smooth */ }
+  {
+    /* Hehehehehee Make it Smooth */
+  }
   const data = [
     { title: "Structural", persentage: 80 },
     { title: "Rail", persentage: 90 },
@@ -22,14 +24,13 @@ const Hero = () => {
     { title: "Signal", persentage: 85 },
     { title: "Track Bed", persentage: 92 },
   ];
-   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleOverlay = () => {
     setIsOpen(!isOpen);
   };
   return (
     <>
-
       <div className="mt-5">
         {/* Background effect */}
         <div className="absolute flex h-screen w-full items-center bg-white dark:bg-black justify-center top-0 left-0">
@@ -49,28 +50,25 @@ const Hero = () => {
             <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 mb-6">
               RAILTRACK HEALTH MONITOR SYSTEM
             </h2>
-     
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              
-                      {isOpen ? (
-              <Overlay isOpen={isOpen} onClose={toggleOverlay}>
-                <div
-                  className=" "
-                >
-                <DataTable />
+              {isOpen ? (
+                <Overlay isOpen={isOpen} onClose={toggleOverlay}>
+                  <div>
+                    <DataTable />
+                  </div>
+                </Overlay>
+              ) : (
+                <div className="grid grid-cols-3 ">
+                  {data.map((item, index) => (
+                    <Card
+                      key={index}
+                      title={item.title}
+                      persentage={item.persentage}
+                    />
+                  ))}
                 </div>
-              </Overlay>
-            ) : (
-              <div className="grid grid-cols-3 ">
-                {data.map((item, index) => (
-                  <Card
-                    key={index}
-                    title={item.title}
-                    persentage={item.persentage}
-                  />
-                ))}
-              </div>
-            )}
+              )}
               <div className="flex flex-col gap-8">
                 <div
                   className="relative rounded-2xl h-[250px] flex items-center justify-center 
@@ -79,9 +77,9 @@ const Hero = () => {
       shadow-[0_0_25px_rgba(34,211,238,0.12)] hover:shadow-[0_0_35px_rgba(34,211,238,0.3)] 
       transition duration-300"
                 >
-                
                   <p className="text-center font-light tracking-widest text-cyan-300 text-lg">
-                    Type of Track <br /> Model Render <br />  {/* <------- Track Model Render */}
+                    Type of Track <br /> Model Render <br />{" "}
+                    {/* <------- Track Model Render */}
                     <span className="font-semibold text-cyan-400">
                       [Name of Type]
                     </span>
@@ -95,22 +93,20 @@ const Hero = () => {
       transition duration-300"
                 >
                   <p className="text-violet-300 font-medium tracking-wide text-lg">
-                    Prev Record  {/*<------- Track Model Render */}
-                    < button className="text-violet-400 hover:text-violet-200 font-semibold " onClick={toggleOverlay}>
-                           <Expand className="inline-block ml-2 mb-1" size={18} />
-                            
+                    Prev Record {/*<------- Track Model Render */}
+                    <button
+                      className="text-violet-400 hover:text-violet-200 font-semibold "
+                      onClick={toggleOverlay}
+                    >
+                      <Expand className="inline-block ml-2 mb-1" size={18} />
                     </button>
                     {/*<CustomizedDialogs />*/}
                   </p>
                 </div>
               </div>
             </div>
-
-
           </div>
-            
         </div>
-      
       </div>
     </>
   );
