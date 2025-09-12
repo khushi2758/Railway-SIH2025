@@ -10,9 +10,6 @@ import TableRow from "@mui/material/TableRow";
 import { Card } from "../Card";
 
 
-
-
-
 interface Column {
   id: "idx" | "year" ;
   label: string;
@@ -56,7 +53,6 @@ const rows = [
   createData(12, "2019-2020"),
   createData(13, "2020-2021"),
   createData(14, "2021-2022"),
-
 ];
 
   const DUMMY_DATA = [
@@ -115,7 +111,6 @@ const rows = [
       { title: "Signal", persentage: 85 },
       { title: "Track Bed", persentage: 92 }
     ]
-
   ];
 
 export default function StickyHeadTable() {

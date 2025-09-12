@@ -46,26 +46,23 @@ export const Card: React.FC<Data> = ({ title, persentage }) => {
         {title}
       </p>
 
-      {/* Progress Bar */}
+      {/* Progress Bar */} 
       <Stack spacing={2} sx={{ flexGrow: 1 }}>
         <BorderLinearProgress variant="determinate" value={persentage} />
       </Stack>
 
       {/* Percentage Display */}
       <div className="flex justify-end mt-6">
-        <button
-          className="px-5 py-2 rounded-full 
+        <button className="px-5 py-2 rounded-full 
     bg-gradient-to-r from-cyan-500/20 to-cyan-400/10 
     border border-cyan-400/30 
     text-cyan-300 text-sm font-medium tracking-wide 
     shadow-[0_0_15px_rgba(34,211,238,0.25)] 
     hover:shadow-[0_0_25px_rgba(34,211,238,0.45)] 
-    backdrop-blur-md transition duration-300"
-        >
+    backdrop-blur-md transition duration-300" >
           {persentage}%
         </button>
       </div>
-      
     </BackgroundGradient>
   );
 };

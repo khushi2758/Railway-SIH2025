@@ -3,8 +3,12 @@ import React, { useState, useRef } from "react";
 import { NavbarDemo } from "./Navbar";
 import { Card } from "./Card";
 import { BoxesCore } from "./ui/background-boxes";
+<<<<<<< HEAD
 import { Expand } from "lucide-react";
 import CustomizedDialogs from "./ui/Dialogbox";
+=======
+import { Expand } from 'lucide-react';
+>>>>>>> 519fb168c46ed5d175d84a5fd40981f9fbb5dde7
 import Structural from "./pages/Structural";
 import Overlay from "../component/Overlay";
 import DataTable from "./ui/Table";
