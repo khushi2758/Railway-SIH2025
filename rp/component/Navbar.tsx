@@ -10,14 +10,27 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from "@/component/ui/navbar-menu";
-import { useState,useEffect } from "react";
+} from "../component/ui/navbar-menu";
+import { useState, useEffect, ReactElement } from "react";
 
-export function NavbarDemo() {
-  const navItems = [   
-  {
+interface NavItem {
+  name: string;
+  link: string;
+}
+
+interface NavbarDemoProps {
+  // Add any props if needed
+}
+
+export function NavbarDemo({}: NavbarDemoProps): ReactElement {
+  const navItems: NavItem[] = [
+    {
+      name: "RailTrack System",
+      link: "/railtrack",
+    },
+    {
       name: "Structural",
-      link: "/Structural", 
+      link: "/Structural",
     },
     {
       name: "Rail",
@@ -35,39 +48,46 @@ export function NavbarDemo() {
       name: "Environmental",
       link: "/Environmental",
     },
-
   ];
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-   const [time, setTime] = useState<string>("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [time, setTime] = useState<string>("");
 
   useEffect(() => {
-    // Set initial time when component mounts
-    const updateTime = () => {
+    const updateTime = (): void => {
       const now = new Date().toLocaleString();
       setTime(now);
     };
-
-    updateTime(); // call immediately
-
-    // Optional: update every second
+    
+    updateTime();
     const interval = setInterval(updateTime, 1000);
-
+    
     return () => clearInterval(interval);
   }, []);
 
+  const handleMobileMenuToggle = (): void => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMobileMenuClose = (): void => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <div className="  h-10 pb-2.5 sticky top-0">
-      <Navbar >
-        {/* Desktop Navigation */}
+    <div className="sticky top-0 z-50">
+      <Navbar>
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} className="mr-20" />
           <div className="flex items-center gap-3 ml-14">
-         <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
-            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest text-sm">LOCATION</NavbarButton>
-            
-            
+            <span suppressHydrationWarning>{time}</span>
+
+            <NavbarButton
+              variant="primary"
+              className="ml-14 font-semibold tracking-widest text-sm"
+            >
+              LOCATION
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -77,34 +97,34 @@ export function NavbarDemo() {
             <NavbarLogo />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={handleMobileMenuToggle}
             />
           </MobileNavHeader>
 
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
+            onClose={handleMobileMenuClose}
           >
             {navItems.map((item, idx) => (
               <Link
                 key={`mobile-link-${idx}`}
                 href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                onClick={handleMobileMenuClose}
+                className="relative text-neutral-600 dark:text-neutral-300 block py-2 hover:text-neutral-900 dark:hover:text-white transition-colors"
               >
-                <span className="block">{item.name}</span>
+                {item.name}
               </Link>
             ))}
-            <div className="flex w-full flex-col gap-4">
+            <div className="flex w-full flex-col gap-4 mt-4">
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={handleMobileMenuClose}
                 variant="primary"
                 className="w-full"
               >
                 Login
               </NavbarButton>
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={handleMobileMenuClose}
                 variant="primary"
                 className="w-full"
               >
@@ -114,11 +134,6 @@ export function NavbarDemo() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-    
-
-      {/* Navbar */}
     </div>
   );
 }
-
-
