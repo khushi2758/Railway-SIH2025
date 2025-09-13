@@ -1,12 +1,18 @@
-import Hero from "@/app/Landing/page";
+import About from "@/app/About/page";
+import Hero from "@/app/Landing/page"; 
 import { NavbarDemo } from "@/component/Navbar";
-import Image from "next/image";
+import BottomNav from "@/component/ui/buttomNav";
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
-      <NavbarDemo />
+    <>
+    <NavbarDemo />
+    <main className="min-h-screen overflow-y-scroll">
       <Hero />
     </main>
+    <BottomNav />
+    <About />
+    
+    </>
   );
 }

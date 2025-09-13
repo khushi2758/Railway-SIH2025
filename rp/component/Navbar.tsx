@@ -44,10 +44,6 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
       name: "Ballast",
       link: "/Ballast",
     },
-    {
-      name: "Environmental",
-      link: "/Environmental",
-    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -74,12 +70,12 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
   };
 
   return (
-    <div className="sticky top-0 z-50">
+    <div className="sticky top-0 z-50 backdrop-blur-2xl">
       <Navbar>
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} className="mr-20" />
-          <div className="flex items-center gap-3 ml-14">
+          <div className="flex items-center gap-3 ml-14 text-stone-200">
             <span suppressHydrationWarning>{time}</span>
 
             <NavbarButton
