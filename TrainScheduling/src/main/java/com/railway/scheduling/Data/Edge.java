@@ -6,15 +6,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Edge {
-    int dist;
-    boolean freeByTrain;
-    double delayTime;
-    int trackHealthOk;
-    double speed;
-    double totalWeight;
-    double baseCost;
-    double penalty;
-    double trainSpecificCost;
+    private int dist;
+    private boolean freeByTrain;
+    private double delayTime;
+    private int trackHealthOk;
+    private double speed;
+    private double totalWeight;
+    private double baseCost;
+    private double penalty;
+    private double trainSpecificCost;
 
     public Edge(int dist, boolean freeByTrain, double delayTime, int trackHealthOk, double speed) {
         this.dist = dist;
