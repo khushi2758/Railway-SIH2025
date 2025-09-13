@@ -8,10 +8,10 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { Card } from "../Card";
-
+import { Button } from "@mui/material";
 
 interface Column {
-  id: "idx" | "year" ;
+  id: "idx" | "year";
   label: string;
   minWidth?: number;
   align?: "right";
@@ -21,21 +21,15 @@ interface Column {
 const columns: readonly Column[] = [
   { id: "idx", label: "No", minWidth: 170 },
   { id: "year", label: "Region Wise Data", minWidth: 100 },
-
 ];
 
 interface Data {
   idx: number;
   year: string;
- 
 }
 
-function createData(
-  idx: number,
-  year: string,
-  
-): Data {
-  return { idx, year  };
+function createData(idx: number, year: string): Data {
+  return { idx, year };
 }
 
 const rows = [
@@ -43,10 +37,10 @@ const rows = [
   createData(2, "2023 - 2024"),
   createData(3, "2024 - 2025"),
   createData(4, "2011-2020"),
-  createData(5, "2012-2013" ),
+  createData(5, "2012-2013"),
   createData(6, "2013-2014"),
   createData(7, "2014-2015"),
-  createData(8, "2015-2016"), 
+  createData(8, "2015-2016"),
   createData(9, "2016-2017"),
   createData(10, "2017-2018"),
   createData(11, "2018-2019"),
@@ -55,173 +49,242 @@ const rows = [
   createData(14, "2021-2022"),
 ];
 
-  const DUMMY_DATA = [
-    [
-      { title: "Structural", persentage: 80 },
-      { title: "Rail", persentage: 90 },
-      { title: "Sleeper", persentage: 70 },
-      { title: "Ballast", persentage: 95 },
-      { title: "Environmental", persentage: 99 },
-      { title: "Bridge", persentage: 88 },
-      { title: "Switch", persentage: 76 },
-      { title: "Signal", persentage: 85 },
-      { title: "Track Bed", persentage: 92 }
-    ],
-      [
-      { title: "Structural", persentage: 80 },
-      { title: "Rail", persentage: 90 },
-      { title: "Sleeper", persentage: 70 },
-      { title: "Ballast", persentage: 95 },
-      { title: "Environmental", persentage: 99 },
-      { title: "Bridge", persentage: 88 },
-      { title: "Switch", persentage: 76 },
-      { title: "Signal", persentage: 85 },
-      { title: "Track Bed", persentage: 92 }
-    ],
-     [
-      { title: "Structural", persentage: 80 },
-      { title: "Rail", persentage: 90 },
-      { title: "Sleeper", persentage: 70 },
-      { title: "Ballast", persentage: 95 },
-      { title: "Environmental", persentage: 99 },
-      { title: "Bridge", persentage: 88 },
-      { title: "Switch", persentage: 76 },
-      { title: "Signal", persentage: 85 },
-      { title: "Track Bed", persentage: 92 }
-    ],
-     [
-      { title: "Structural", persentage: 80 },
-      { title: "Rail", persentage: 90 },
-      { title: "Sleeper", persentage: 70 },
-      { title: "Ballast", persentage: 95 },
-      { title: "Environmental", persentage: 99 },
-      { title: "Bridge", persentage: 88 },
-      { title: "Switch", persentage: 76 },
-      { title: "Signal", persentage: 85 },
-      { title: "Track Bed", persentage: 92 }
-    ],
-     [
-      { title: "Structural", persentage: 80 },
-      { title: "Rail", persentage: 90 },
-      { title: "Sleeper", persentage: 70 },
-      { title: "Ballast", persentage: 95 },
-      { title: "Environmental", persentage: 99 },
-      { title: "Bridge", persentage: 88 },
-      { title: "Switch", persentage: 76 },
-      { title: "Signal", persentage: 85 },
-      { title: "Track Bed", persentage: 92 }
-    ]
-  ];
+const DUMMY_DATA = [
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+  [
+    { title: "Structural", persentage: 80 },
+    { title: "Rail", persentage: 90 },
+    { title: "Sleeper", persentage: 70 },
+    { title: "Ballast", persentage: 95 },
+    { title: "Environmental", persentage: 99 },
+    { title: "Bridge", persentage: 88 },
+    { title: "Switch", persentage: 76 },
+    { title: "Signal", persentage: 85 },
+    { title: "Track Bed", persentage: 92 },
+  ],
+];
 
 export default function StickyHeadTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  // state to store the rendered component
-  const [selectedCard, setSelectedCard] = React.useState<React.ReactNode | null>(null);
+  const [selectedRow, setSelectedRow] = React.useState<Data | null>(null);
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
 
   function handleFormClick(row: Data) {
-  const cardArray = DUMMY_DATA[row.idx - 1]; // Get the array for the selected row
-  if (cardArray) {
-    setSelectedCard(
-      <div className="grid grid-cols-3" >
-        {cardArray.map((item, i) => (
-          <Card key={i} title={item.title} persentage={item.persentage} />
-        ))}
-      </div>
-    );
-  } else {
-    setSelectedCard(null);
+    setSelectedRow(row);
   }
-}
+
+  function handleBack() {
+    setSelectedRow(null);
+  }
+
   return (
     <>
-      <Paper
-        sx={{
-          width: "100%",
-          overflow: "hidden",
-          background:
-            "linear-gradient(to bottom right, rgba(17,24,39,0.7), rgba(39,39,42,0.6))",
-          border: "1px solid rgba(34,211,238,0.2)",
-          backdropFilter: "blur(8px)",
-          color: "#22d3ee",
-          "& .MuiTableCell-root": {
+      {!selectedRow ? (
+        // ---- Table View ----
+        <Paper
+          sx={{
+            width: "100%",
+            overflow: "hidden",
+            background:
+              "linear-gradient(to bottom right, rgba(17,24,39,0.7), rgba(39,39,42,0.6))",
+            border: "1px solid rgba(34,211,238,0.2)",
+            backdropFilter: "blur(8px)",
             color: "#22d3ee",
-          },
-          "& .MuiTableHead-root .MuiTableCell-root": {
-            color: "#06b6d4",
-            fontWeight: 700,
-          },
-        }}
-      >
-        <TableContainer sx={{ maxHeight: 440, color: "#22d3ee" }}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{
-                      minWidth: column.minWidth,
-                      background:
-                        "linear-gradient(to bottom right, rgba(2,24,39,0.7), rgba(3,39,42,0.6))",
-                    }}
-                  >
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => (
-                  <TableRow
-                    hover
-                    role="checkbox"
-                    tabIndex={-1}
-                    key={row.idx}
-                    onClick={() => handleFormClick(row)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number"
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </Paper>
-
-      {/* Render the clicked card below the table */}
-      <div style={{ marginTop: "20px" }}>{selectedCard}</div>
+            "& .MuiTableCell-root": {
+              color: "#22d3ee",
+            },
+            "& .MuiTableHead-root .MuiTableCell-root": {
+              color: "#06b6d4",
+              fontWeight: 700,
+            },
+          }}
+        >
+          <TableContainer sx={{ maxHeight: 440, color: "#22d3ee" }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{
+                        minWidth: column.minWidth,
+                        background:
+                          "linear-gradient(to bottom right, rgba(2,24,39,0.7), rgba(3,39,42,0.6))",
+                      }}
+                    >
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row.idx}
+                      onClick={() => handleFormClick(row)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === "number"
+                              ? column.format(value)
+                              : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Paper>
+      ) : (
+        // ---- Grid View ----
+        <div>
+          <h2 className="text-xl font-bold text-cyan-400 mb-4">
+            Records for {selectedRow.year}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {DUMMY_DATA[selectedRow.idx - 1]?.map((item, i) => (
+              <Card key={i} title={item.title} persentage={item.persentage} />
+            ))}
+          </div>
+          <Button
+            variant="contained"
+            onClick={handleBack}
+            sx={{ marginTop: 3, backgroundColor: "#22d3ee" }}
+          >
+            Back to Table
+          </Button>
+        </div>
+      )}
     </>
   );
 }

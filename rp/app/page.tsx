@@ -1,25 +1,25 @@
 
-import Hero from "@/component/Hero";
-//import { FloatingNav } from "@/component/ui/FloatingNav";
-import { FaHome } from "react-icons/fa";
-import {NavbarDemo} from "@/component/Navbar";
+import About from "@/app/About/page";
+import Hero from "@/app/Landing/page"; 
+import { NavbarDemo } from "@/component/Navbar";
+import BottomNav from "@/component/ui/buttomNav";
 
 export default function Home() {
   return (
-    <main className="relative bg-black flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-          {/* <FloatingNav
-           navItems = {[
-            { name: "Home", link: "/" , icon: <FaHome/> },
-            
-           ]}>
-      <NavbarDemo />   */}   
+    <>
+    <NavbarDemo />
+    <main className="min-h-screen overflow-y-scroll">
+
       <Hero />
     
-</div>
+
 
 
 
     </main>
+    <BottomNav />
+    <About />
+    
+    </>
   );
 }
