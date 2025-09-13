@@ -15,12 +15,13 @@ L.Icon.Default.mergeOptions({
   shadowUrl,
 });
 
-type Station = {
+interface Station {
   id: number;
   name: string;
+  type: "station" | "halt";
   lat: number;
   lon: number;
-};
+}
 
 type Rail = {
   id: number;
@@ -37,6 +38,7 @@ export default function BardhamanRailwayMap() {
         [out:json][timeout:25];
         (
           node["railway"="station"](23.1921,87.8113,23.2784,87.8989);
+            
           way["railway"="rail"](23.1921,87.8113,23.2784,87.8989);
         );
         out body;
@@ -59,14 +61,18 @@ export default function BardhamanRailwayMap() {
       });
 
       // Stations
-      const stationsData = data.elements
-        .filter((el:any) => el.type === "node" && el.tags?.railway === "station")
-        .map((s : any) => ({
-          id: s.id,
-          name: s.tags?.name || "Unnamed Station",
-          lat: s.lat,
-          lon: s.lon,
-        }));
+     const stationsData: Station[] = data.elements
+  .filter(
+    (el: any) =>
+      el.type === "node" && ["station", "halt"].includes(el.tags?.railway)
+  )
+  .map((s: any) => ({
+    id: s.id,
+    name: s.tags?.name || "Unnamed Stop",
+    type: s.tags?.railway as "station" | "halt", // ✅ cast type
+    lat: s.lat,
+    lon: s.lon,
+  }));
 
       // Rails
       const railsData = data.elements
@@ -87,7 +93,7 @@ export default function BardhamanRailwayMap() {
   }, []);
 
   return (
-    <MapContainer center={[23.24, 87.86]} zoom={100000} style={{ height: "90vh", width: "100%" , color: "black" }}>
+    <MapContainer center={[23.24958,87.86990]} zoom={100000} style={{ height: "90vh", width: "100%" , color: "black" }}>
       <TileLayer
         attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -95,14 +101,33 @@ export default function BardhamanRailwayMap() {
 
       {/* Stations */}
       {stations.map((st) => (
-        <Marker key={st.id} position={[st.lat, st.lon]}>
-          <Popup>{st.name}</Popup>
-        </Marker>
-      ))}
+  <Marker
+    key={st.id}
+    position={[st.lat, st.lon]}
+    icon={new L.Icon({
+      iconUrl:
+        st.type === "halt"
+          ? "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
+          : "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+      shadowUrl:
+        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    })}
+  >
+    <Popup>
+      <b>{st.name}</b> <br />
+      Type: {st.type}
+    </Popup>
+  </Marker>
+))}
+
 
       {/* Tracks */}
       {rails.map((r) => (
-        <Polyline key={r.id} positions={r.path} color="blue" weight={1} />
+        <Polyline key={r.id} positions={r.path} color="green" weight={2} />
       ))}
     </MapContainer>
   );

@@ -50,7 +50,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [time, setTime] = useState<string>("");
-  const [click, setClick] = useState<ReactElement>();
+  //const [click, setClick] = useState<ReactElement>();
   useEffect(() => {
     const updateTime = (): void => {
       const now = new Date().toLocaleString();
@@ -65,7 +65,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
 
 
   function handlelocationClick(){
-    setClick(<Link href="/Location">Location</Link>);
+    //setClick(<Link href="/Location">Location</Link>);
   // setClick(<Location/>)
     console.log("Location Clicked");
   }
@@ -86,10 +86,10 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
           <NavbarLogo />
           <NavItems items={navItems} className="mr-20" />
           <div className="flex items-center gap-3 ml-14 text-stone-200">
-            <span suppressHydrationWarning>{time}</span>
+           
 
          <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
-            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  onClick={handlelocationClick}>LOCATION </NavbarButton>
+            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  onClick={handlelocationClick}><Link href="/Location">LOCATION </Link></NavbarButton>
             
 
            
