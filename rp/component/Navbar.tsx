@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Location from "./Location";
 import {
   Navbar,
   NavBody,
@@ -14,6 +15,7 @@ import {
 import { useState,useEffect } from "react";
 
 export function NavbarDemo() {
+  const [click, setClick] = useState<React.ReactNode | null>(null);;
   const navItems = [   
   {
       name: "Structural",
@@ -56,6 +58,12 @@ export function NavbarDemo() {
     return () => clearInterval(interval);
   }, []);
 
+  function handlelocationClick(){
+    setClick(<Link href="/Location">Location</Link>);
+  // setClick(<Location/>)
+    console.log("Location Clicked");
+  }
+
   return (
     <div className="  h-10 pb-2.5 sticky top-0">
       <Navbar >
@@ -65,7 +73,7 @@ export function NavbarDemo() {
           <NavItems items={navItems} className="mr-20" />
           <div className="flex items-center gap-3 ml-14">
          <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
-            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest text-sm">LOCATION</NavbarButton>
+            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  onClick={handlelocationClick}><Link href="/Location">LOCATION </Link></NavbarButton>
             
             
           </div>

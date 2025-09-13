@@ -1,7 +1,7 @@
 import Hero from "@/component/Hero";
 //import { FloatingNav } from "@/component/ui/FloatingNav";
 import { FaHome } from "react-icons/fa";
-
+import {NavbarDemo} from "@/component/Navbar";
 
 export default function Home() {
   return (
@@ -11,12 +11,11 @@ export default function Home() {
            navItems = {[
             { name: "Home", link: "/" , icon: <FaHome/> },
             
-           ]}>*/}
-         
+           ]}>
+      <NavbarDemo />   */}   
       <Hero />
     
-</div> /
-<li>ji</li>
+</div>
     </main>
   );
 }
