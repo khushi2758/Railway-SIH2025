@@ -15,11 +15,6 @@ import {
 import { useState, useEffect, ReactElement } from "react";
 
 
-export function NavbarDemo() {
-  const [click, setClick] = useState<React.ReactNode | null>(null);;
-  const navItems = [   
-  {
-
 interface NavItem {
   name: string;
   link: string;
@@ -36,7 +31,6 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
       link: "/railtrack",
     },
     {
-
       name: "Structural",
       link: "/Structural",
     },
@@ -52,15 +46,12 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
       name: "Ballast",
       link: "/Ballast",
     },
-    {
-      name: "Environmental",
-      link: "/Environmental",
-    },
+   
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [time, setTime] = useState<string>("");
-
+  const [click, setClick] = useState<ReactElement>();
   useEffect(() => {
     const updateTime = (): void => {
       const now = new Date().toLocaleString();
@@ -98,18 +89,10 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
           <div className="flex items-center gap-3 ml-14">
 
          <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
-            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  onClick={handlelocationClick}><Link href="/Location">LOCATION </Link></NavbarButton>
+            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  onClick={handlelocationClick}>LOCATION </NavbarButton>
             
 
-            <span suppressHydrationWarning>{time}</span>
-
-            <NavbarButton
-              variant="primary"
-              className="ml-14 font-semibold tracking-widest text-sm"
-            >
-              LOCATION
-            </NavbarButton>
-
+           
           </div>
         </NavBody>
 
