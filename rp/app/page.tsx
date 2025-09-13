@@ -1,3 +1,4 @@
+
 import Hero from "@/component/Hero";
 //import { FloatingNav } from "@/component/ui/FloatingNav";
 import { FaHome } from "react-icons/fa";
@@ -16,6 +17,9 @@ export default function Home() {
       <Hero />
     
 </div>
+
+
+
     </main>
   );
 }
