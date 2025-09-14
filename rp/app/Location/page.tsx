@@ -38,8 +38,8 @@ export default function BardhamanRailwayMap() {
         [out:json][timeout:25];
         (
            node(around:20000,23.2557,87.8590)["railway"="station"];
-  node(around:20000,23.2557,87.8590)["railway"="halt"];
-  way(around:20000,23.2557,87.8590)["railway"="rail"];
+            node(around:20000,23.2557,87.8590)["railway"="halt"];
+            way(around:20000,23.2557,87.8590)["railway"="rail"];
         );
         out body;
         >;
