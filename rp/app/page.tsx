@@ -9,13 +9,7 @@ export default function Home() {
     <>
     <NavbarDemo />
     <main className="min-h-screen overflow-y-scroll">
-
       <Hero />
-    
-
-
-
-
     </main>
     <BottomNav />
     <About />
