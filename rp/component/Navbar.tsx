@@ -89,7 +89,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
            
 
          <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
-            <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  onClick={handlelocationClick}><Link href="/Location">LOCATION </Link></NavbarButton>
+           <Link href="/Location"> <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  >LOCATION </NavbarButton></Link>
             
 
            

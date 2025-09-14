@@ -18,7 +18,7 @@ L.Icon.Default.mergeOptions({
 interface Station {
   id: number;
   name: string;
-  type: "station" | "halt";
+  type: "junction" | "station" | "halt";
   lat: number;
   lon: number;
 }
@@ -37,9 +37,9 @@ export default function BardhamanRailwayMap() {
       const query = `
         [out:json][timeout:25];
         (
-          node["railway"="station"](23.1921,87.8113,23.2784,87.8989);
-            
-          way["railway"="rail"](23.1921,87.8113,23.2784,87.8989);
+           node(around:20000,23.2557,87.8590)["railway"="station"];
+  node(around:20000,23.2557,87.8590)["railway"="halt"];
+  way(around:20000,23.2557,87.8590)["railway"="rail"];
         );
         out body;
         >;
@@ -61,18 +61,29 @@ export default function BardhamanRailwayMap() {
       });
 
       // Stations
-     const stationsData: Station[] = data.elements
+    const stationsData: Station[] = data.elements
   .filter(
     (el: any) =>
       el.type === "node" && ["station", "halt"].includes(el.tags?.railway)
   )
-  .map((s: any) => ({
-    id: s.id,
-    name: s.tags?.name || "Unnamed Stop",
-    type: s.tags?.railway as "station" | "halt", // ✅ cast type
-    lat: s.lat,
-    lon: s.lon,
-  }));
+  .map((s: any) => {
+    let type: "junction" | "station" | "halt" = "station";
+
+    if (s.tags?.railway === "halt") {
+      type = "halt";
+    } else if (s.tags?.railway === "station" && s.tags?.station === "junction") {
+      type = "junction";
+    }
+
+    return {
+      id: s.id,
+      name: s.tags?.name || "Unnamed Stop",
+      type,
+      lat: s.lat,
+      lon: s.lon,
+    };
+  });
+
 
       // Rails
       const railsData = data.elements
@@ -93,36 +104,55 @@ export default function BardhamanRailwayMap() {
   }, []);
 
   return (
-    <MapContainer center={[23.24958,87.86990]} zoom={100000} style={{ height: "90vh", width: "100%" , color: "black" }}>
+    <MapContainer center={[23.24958,87.86990]} zoom={13} style={{ height: "90vh", width: "100%" , color: "black" }}>
+      
+      
       <TileLayer
+
+
         attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
       {/* Stations */}
-      {stations.map((st) => (
-  <Marker
-    key={st.id}
-    position={[st.lat, st.lon]}
-    icon={new L.Icon({
-      iconUrl:
-        st.type === "halt"
-          ? "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png"
-          : "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
-      shadowUrl:
-        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41],
-    })}
-  >
-    <Popup>
-      <b>{st.name}</b> <br />
-      Type: {st.type}
-    </Popup>
-  </Marker>
-))}
+      {stations.map((st) => {
+  let iconUrl = "";
+
+  if (st.type === "halt") {
+    iconUrl =
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png";
+  } else if (st.type === "junction") {
+    iconUrl =
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png";
+  } else {
+    iconUrl =
+      "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png";
+  }
+
+  return (
+    <Marker
+      key={st.id}
+      position={[st.lat, st.lon]}
+      icon={
+        new L.Icon({
+          iconUrl,
+          shadowUrl:
+            "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41],
+        })
+      }
+    >
+      <Popup>
+        <b>{st.name}</b> <br />
+        Type: {st.type}
+      </Popup>
+    </Marker>
+  );
+})}
+
 
 
       {/* Tracks */}
