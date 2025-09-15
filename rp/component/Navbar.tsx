@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Location from "./Location";
+//import Location from "./Location";
 import {
   Navbar,
   NavBody,
@@ -86,7 +86,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
            
 
         {/* <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>*/}
-           <Link href="/Location"> <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  >LOCATION </NavbarButton></Link>
+           <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm" href="/Location" >LOCATION </NavbarButton>
             
 
            
