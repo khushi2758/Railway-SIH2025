@@ -1,3 +1,5 @@
+
+//nav bar details
 interface NavItem {
   name: string;
   link: string;
@@ -23,6 +25,8 @@ export const navItems: NavItem[] = [
     },
     
   ];
+
+  //Region Wise Data
 export const DUMMY_DATA = [
     [
       { title: "Structural", persentage: 80 },
@@ -168,7 +172,7 @@ export const DUMMY_DATA = [
       { title: "Track Bed", persentage: 92 }
     ],
   ];
-
+// TypeScript interfaces and data for the table
   interface Data {
   idx: number;
   year: string;
@@ -212,7 +216,7 @@ export const columns: readonly Column[] = [
   { id: "year", label: "Region Wise Data", minWidth: 100 },
 
 ];
-
+// Data for the stat cards on the home page
 export  const data = [
     { title: "Structural", persentage: 80 },
     { title: "Rail", persentage: 90 },
