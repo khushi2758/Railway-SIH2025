@@ -26,6 +26,7 @@ interface Station {
 type Rail = {
   id: number;
   path: [number, number][];
+  color: string;
 };
 
 export default function BardhamanRailwayMap() {
@@ -33,6 +34,18 @@ export default function BardhamanRailwayMap() {
   const [rails, setRails] = useState<Rail[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const getRandomColor = (index: number) => {
+    const colors = [
+      '#FF5733', '#33FF57', '#3357FF', '#F033FF', '#FF33A1', 
+      '#33FFF6', '#FFD733', '#33FF96', '#8C33FF', '#FF8C33',
+      '#33B5FF', '#FF3333', '#33FF33', '#5733FF', '#FF3361',
+      '#33FFC8', '#FF33E9', '#B5FF33', '#FF6F33', '#33FF8C',
+      '#FF33B5', '#33E9FF', '#FFC833', '#338CFF', '#FF338C',
+      '#33FF57', '#FF5733', '#5733FF', '#33FFC8', '#FF33A1'
+    ];
+    return colors[index % colors.length];
+  };
 
   useEffect(() => {
     async function fetchRailwayData() {
@@ -75,33 +88,60 @@ export default function BardhamanRailwayMap() {
               el.type === "node" && ["station", "halt"].includes(el.tags?.railway)
           )
           .map((s: any) => {
-            let type: "junction" | "station" | "halt" = "station";
             const name = s.tags?.name || "Unnamed Stop";
+            const lowerName = name.toLowerCase();
 
-            if (s.tags?.railway === "halt") {
-              type = "halt";
-            } else if (name.toLowerCase().includes("junction")) {
-              type = "junction";
+            // Check if name contains "junction" (highest priority)
+            if (lowerName.includes("junction")) {
+              return {
+                id: s.id,
+                name: name,
+                type: "junction",
+                lat: s.lat,
+                lon: s.lon,
+              };
             }
-
-            return {
-              id: s.id,
-              name: name,
-              type,
-              lat: s.lat,
-              lon: s.lon,
-            };
+            // Check if name contains "halt" 
+            else if (lowerName.includes("halt")) {
+              return {
+                id: s.id,
+                name: name,
+                type: "halt",
+                lat: s.lat,
+                lon: s.lon,
+              };
+            }
+            // Use the original railway tag
+            else if (s.tags?.railway === "halt") {
+              return {
+                id: s.id,
+                name: name,
+                type: "halt",
+                lat: s.lat,
+                lon: s.lon,
+              };
+            }
+            // Default to station
+            else {
+              return {
+                id: s.id,
+                name: name,
+                type: "station",
+                lat: s.lat,
+                lon: s.lon,
+              };
+            }
           });
 
-        // Rails
         const railsData = data.elements
           .filter((el: any) => el.type === "way" && el.tags?.railway === "rail")
-          .map((w: any) => ({
+          .map((w: any, index: number) => ({
             id: w.id,
             path: w.nodes
               .map((nid: number) => nodes[nid])
               .filter(Boolean)
               .map((n: any) => [n.lat, n.lon]),
+            color: getRandomColor(index)
           }));
 
         setStations(stationsData);
@@ -117,8 +157,6 @@ export default function BardhamanRailwayMap() {
 
     fetchRailwayData();
   }, []);
-
-  // Custom icons for different station types
   const createCustomIcon = (color: string) => {
     return new L.Icon({
       iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
@@ -130,9 +168,9 @@ export default function BardhamanRailwayMap() {
     });
   };
 
-  const junctionIcon = createCustomIcon("red");     // Junctions = Red
-  const stationIcon = createCustomIcon("blue");     // Stations = Blue
-  const haltIcon = createCustomIcon("yellow");      // Halts = Yellow
+  const junctionIcon = createCustomIcon("red");     
+  const stationIcon = createCustomIcon("blue");     
+  const haltIcon = createCustomIcon("yellow");      
 
   const getIconForStation = (type: "junction" | "station" | "halt") => {
     switch (type) {
@@ -251,20 +289,47 @@ export default function BardhamanRailwayMap() {
                     This station is detected as a junction because its name contains "Junction"
                   </p>
                 )}
+                {st.type === 'halt' && (
+                  <p style={{ margin: '8px 0 0 0', padding: '8px', backgroundColor: '#fff8e1', borderRadius: '4px', fontSize: '14px', color: '#f57f17' }}>
+                    This station is detected as a halt because its name contains "Halt" or has railway=halt tag
+                  </p>
+                )}
               </div>
             </Popup>
           </Marker>
         ))}
 
-        {/* Tracks */}
         {rails.map((r) => (
           <Polyline 
             key={r.id} 
             positions={r.path} 
-            color="#555" 
-            weight={3} 
-            opacity={0.7}
-          />
+            color={r.color}
+            weight={4} 
+            opacity={0.8}
+          >
+            <Popup>
+              <div style={{ padding: '8px' }}>
+                <h4 style={{ margin: '0 0 8px 0', color: '#2c3e50' }}>Track Segment</h4>
+                <p style={{ margin: '4px 0', fontSize: '14px' }}>
+                  ID: {r.id}
+                </p>
+                <p style={{ margin: '4px 0', fontSize: '14px' }}>
+                  Length: {r.path.length} points
+                </p>
+                <div style={{ 
+                  display: 'inline-block', 
+                  padding: '4px 8px', 
+                  backgroundColor: r.color, 
+                  borderRadius: '4px', 
+                  color: 'white', 
+                  fontWeight: 'bold',
+                  marginTop: '8px'
+                }}>
+                  Track Color
+                </div>
+              </div>
+            </Popup>
+          </Polyline>
         ))}
       </MapContainer>
     </div>
