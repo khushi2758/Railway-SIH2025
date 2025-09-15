@@ -42,16 +42,13 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
       name: "Sleeper",
       link: "/Sleeper",
     },
-    {
-      name: "Ballast",
-      link: "/Ballast",
-    },
+    
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const [time, setTime] = useState<string>("");
+
   //const [click, setClick] = useState<ReactElement>();
-  useEffect(() => {
+  /*useEffect(() => {
     const updateTime = (): void => {
       const now = new Date().toLocaleString();
       setTime(now);
@@ -62,7 +59,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
     
     return () => clearInterval(interval);
   }, []);
-
+*/
 
   function handlelocationClick(){
     //setClick(<Link href="/Location">Location</Link>);
@@ -88,7 +85,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
           <div className="flex items-center gap-3 ml-14 text-stone-200">
            
 
-         <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
+        {/* <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>*/}
            <Link href="/Location"> <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  >LOCATION </NavbarButton></Link>
             
 
