@@ -13,37 +13,15 @@ import {
   MobileNavMenu,
 } from "../component/ui/navbar-menu";
 import { useState, useEffect, ReactElement } from "react";
+import { navItems} from "@/data/index";
 
-
-interface NavItem {
-  name: string;
-  link: string;
-}
 
 interface NavbarDemoProps {
   // Add any props if needed
 }
 
 export function NavbarDemo({}: NavbarDemoProps): ReactElement {
-  const navItems: NavItem[] = [
-    {
-      name: "RailTrack System",
-      link: "/railtrack",
-    },
-    {
-      name: "Structural",
-      link: "/Structural",
-    },
-    {
-      name: "Rail",
-      link: "/Rail",
-    },
-    {
-      name: "Sleeper",
-      link: "/Sleeper",
-    },
-    
-  ];
+  
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
