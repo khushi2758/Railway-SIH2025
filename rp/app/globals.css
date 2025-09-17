@@ -6,3 +6,12 @@
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Geist+Sans&family=Geist+Mono&display=swap');
+
+.geist-sans {
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.geist-mono {
+  font-family: 'Geist Mono', monospace;
+}
