@@ -27,7 +27,11 @@ interface NavbarDemoProps {
 export function NavbarDemo({}: NavbarDemoProps): ReactElement {
   const navItems: NavItem[] = [
     {
-      name: "RailTrack System",
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "TrackHealth",
       link: "/railtrack",
     },
     {
@@ -45,6 +49,10 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
     {
       name: "Ballast",
       link: "/Ballast",
+    },
+    {
+      name: "Dashboard",
+      link: "/Location",
     },
   ];
 
@@ -89,10 +97,6 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
            
 
          <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
-           <Link href="/Location"> <NavbarButton variant="primary" className="ml-14 font-semibold racking-widest  text-sm"  >LOCATION </NavbarButton></Link>
-            
-
-           
           </div>
         </NavBody>
 
@@ -120,22 +124,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
                 {item.name}
               </Link>
             ))}
-            <div className="flex w-full flex-col gap-4 mt-4">
-              <NavbarButton
-                onClick={handleMobileMenuClose}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={handleMobileMenuClose}
-                variant="primary"
-                className="w-full"
-              >
-                LOCATION
-              </NavbarButton>
-            </div>
+
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
