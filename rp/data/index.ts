@@ -23,6 +23,10 @@ export const navItems: NavItem[] = [
       name: "Sleeper",
       link: "/Sleeper",
     },
+     {
+      name: "Dashboard",
+      link: "/Location",
+    },
     
   ];
 

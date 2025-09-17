@@ -21,36 +21,7 @@ interface NavbarDemoProps {
 }
 
 export function NavbarDemo({}: NavbarDemoProps): ReactElement {
-  const navItems: NavItem[] = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "TrackHealth",
-      link: "/railtrack",
-    },
-    {
-      name: "Structural",
-      link: "/Structural",
-    },
-    {
-      name: "Rail",
-      link: "/Rail",
-    },
-    {
-      name: "Sleeper",
-      link: "/Sleeper",
-    },
-    {
-      name: "Ballast",
-      link: "/Ballast",
-    },
-    {
-      name: "Dashboard",
-      link: "/Location",
-    },
-  ];
+ 
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
@@ -92,7 +63,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
           <div className="flex items-center gap-3 ml-14 text-stone-200">
            
 
-         <span className="ml-20 text-black dark:text-white font-semibold racking-widest text-sm" >{time || "Loading..."}</span>
+         
           </div>
         </NavBody>
 
