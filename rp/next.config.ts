@@ -7,7 +7,7 @@ const nextConfig: NextConfig & {
     optimizeFonts: false,
   },
   images: {
-    unoptimized: true, \
+    unoptimized: true, 
   },
 };
 
