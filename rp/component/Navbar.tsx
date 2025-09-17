@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Location from "./Location";
+//import Location from "./Location";
 import {
   Navbar,
   NavBody,
@@ -13,12 +13,8 @@ import {
   MobileNavMenu,
 } from "../component/ui/navbar-menu";
 import { useState, useEffect, ReactElement } from "react";
+import { navItems} from "@/data/index";
 
-
-interface NavItem {
-  name: string;
-  link: string;
-}
 
 interface NavbarDemoProps {
   // Add any props if needed
@@ -57,9 +53,9 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const [time, setTime] = useState<string>("");
+
   //const [click, setClick] = useState<ReactElement>();
-  useEffect(() => {
+  /*useEffect(() => {
     const updateTime = (): void => {
       const now = new Date().toLocaleString();
       setTime(now);
@@ -70,7 +66,7 @@ export function NavbarDemo({}: NavbarDemoProps): ReactElement {
     
     return () => clearInterval(interval);
   }, []);
-
+*/
 
   function handlelocationClick(){
     //setClick(<Link href="/Location">Location</Link>);

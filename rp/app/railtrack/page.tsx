@@ -6,6 +6,7 @@ import DataTable from "@/component/ui/Table";
 import { BoxesCore } from "@/component/ui/background-boxes";
 import { NavbarDemo } from "@/component/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
+import { data} from "@/data/index";
 import {
   LineChart as ReLineChart,
   Line,
@@ -19,17 +20,7 @@ import {
 const RailTrackSystem = () => {
   const [showRecords, setShowRecords] = useState(false);
 
-  const data = [
-    { title: "Structural", persentage: 80 },
-    { title: "Rail", persentage: 90 },
-    { title: "Sleeper", persentage: 70 },
-    { title: "Ballast", persentage: 95 },
-    { title: "Environmental", persentage: 99 },
-    { title: "Bridge", persentage: 88 },
-    { title: "Switch", persentage: 76 },
-    { title: "Signal", persentage: 85 },
-    { title: "Track Bed", persentage: 92 },
-  ];
+
 
   return (
     <div className="mt-0 overflow-x-hidden relative min-h-screen">
