@@ -5,7 +5,7 @@ import TrainStatusCards from "./TrainStatusCards";
 import TrainTrafficChart from "./TrainTrafficChart";
 import TrainTypePie from "./TrainTypePie";
 import { NavbarDemo } from "@/component/Navbar";
-
+import { motion } from "framer-motion";
 const TrainDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white p-4 md:p-6 space-y-6 md:space-y-8 overflow-hidden">
@@ -43,6 +43,29 @@ const TrainDashboard = () => {
             <div className="rounded-xl overflow-hidden border border-gray-700/30 aspect-video">
               <TrainMap />
             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 text-center">
+          {[
+           
+{ heading: "99%", descriptions: "Geographic Accuracy of Mapping Data" },
+  { heading: "2000+ km", descriptions: "Rail Routes Visualized on Map" },
+  { heading: "24/7", descriptions: "Live Map Tracking and Updates" },
+  { heading: "Multi-Layer", descriptions: "Interactive Maps with Routes & Stations" },
+          
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.3, duration: 0.8 }}
+              className="p-6 rounded-2xl border border-cyan-200/40 shadow-md shadow-cyan-200/20"
+            >
+              <p className="text-3xl font-bold text-cyan-200/90 drop-shadow-[0_0_8px_rgba(0,255,255,0.7)]">
+                {stat.heading}
+              </p>
+              <p className="text-gray-300 mt-2">{stat.descriptions}</p>
+            </motion.div>
+          ))}
+        </div>
           </div>
         </div>
         <div className="xl:col-span-3">

@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import BottomNav from "@/component/ui/buttomNav";
+
 import { useEffect, useState } from "react";
 
 const Hero: React.FC = () => {
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 flex flex-col justify-center min-h-screen px-10 md:px-20 text-left">
         <motion.div
         initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: -20 , x:220    }}
+        animate={{ opacity: 1, y: -40 , x:-75    }}
         transition={{ duration: 0.8 }}
         className="font-extrabold "
       >
