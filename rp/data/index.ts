@@ -1,9 +1,10 @@
-
+"use client";
 //nav bar details
 interface NavItem {
   name: string;
   link: string;
 }
+
 
 export const navItems: NavItem[] = [
     {
@@ -17,11 +18,11 @@ export const navItems: NavItem[] = [
     
     {
       name: "Rail",
-      link: "/#",
+      link:" /UnderDev",
     },
     {
       name: "Sleeper",
-      link: "/Sleeper",
+         link: "/UnderDev",
     },
      {
       name: "Dashboard",
