@@ -6,18 +6,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Hero: React.FC = () => {
-  const [time, setTime] = useState<string>("");
-  useEffect(() => {
-    const updateTime = (): void => {
-      const now = new Date().toLocaleString();
-      setTime(now);
-    };
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
   return (
     <div className="absolute top-0 w-full min-h-screen bg-black text-white overflow-hidden">
       <Image
@@ -37,9 +26,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="font-extrabold "
       >
-        <span className="ml-20 text-black dark:text-white text-(length:--my-text-size)racking-widest bg-black  p-6 border-cyan-400/40 shadow-lg shadow-cyan-500/20 text-right">
-          {time || "Loading..."}
-        </span>
+       
       </motion.div>
         
         <motion.h1
