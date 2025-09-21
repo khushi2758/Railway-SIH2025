@@ -11,4 +11,5 @@ public class Train {
     private Long trainId;
     private Time departureTime;
     private Time starBlockTimeInterval;
+    private Time endTimeCoverBlock;
 }
