@@ -13,4 +13,5 @@ public class Train {
     private Time starBlockTimeInterval;
     private Time endTimeCoverBlock;
     private Float trainLength;
+    private Float trainSpeed;
 }
