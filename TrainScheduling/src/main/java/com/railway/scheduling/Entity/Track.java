@@ -7,4 +7,5 @@ import jakarta.persistence.Id;
 public class Track {
     @Id
     private Long trackID;
+    private Float maximumSpeed;
 }
