@@ -12,4 +12,5 @@ public class Train {
     private Time departureTime;
     private Time starBlockTimeInterval;
     private Time endTimeCoverBlock;
+    private Float trainLength;
 }
