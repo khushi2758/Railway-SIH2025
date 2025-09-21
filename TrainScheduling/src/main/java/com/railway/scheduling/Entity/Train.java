@@ -10,4 +10,5 @@ public class Train {
     @Id
     private Long trainId;
     private Time departureTime;
+    private Time starBlockTimeInterval;
 }
