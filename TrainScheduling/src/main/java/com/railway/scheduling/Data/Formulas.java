@@ -13,7 +13,7 @@ public final class Formulas {
         long k = 1;
         return (float) (k * timeInSecond);
     }
-    public static float trainSpecificCost(int priority,int deviationPenalty,boolean isOnList,float trackLength, float maximumSpeedAllowed,Time waitingTime){
+    public static float trainSpecificCost(int priority,int deviationPenalty,boolean isOnList,float trackLength, float maximumSpeedAllowed){
         float alpha = (float) priority;
         float beta = (float) deviationPenalty;
         float edgeOnList = (isOnList) ? 1 : 0;
