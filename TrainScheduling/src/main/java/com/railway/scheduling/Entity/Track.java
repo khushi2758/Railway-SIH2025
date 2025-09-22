@@ -1,5 +1,6 @@
 package com.railway.scheduling.Entity;
 
+import com.railway.scheduling.Data.TrackStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -14,4 +15,5 @@ public class Track {
     @Id
     private Long trackID;
     private Float maximumSpeed;
+    private TrackStatus trackStatus;
 }
