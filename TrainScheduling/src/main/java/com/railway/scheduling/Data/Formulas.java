@@ -22,4 +22,7 @@ public final class Formulas {
     public static float weight(int priority,int deviationPenalty,boolean isOnList,float trackLength,float maximumSpeedAllowed,Time waitingTime){
         return (baseCost(trackLength,maximumSpeedAllowed) + penalty(waitingTime) + trainSpecificCost(priority,deviationPenalty,isOnList,trackLength,maximumSpeedAllowed));
     }
+    public static float endTime(Time startTime,float trackLength, float trainLength,float trainSpeed){
+
+    }
 }
