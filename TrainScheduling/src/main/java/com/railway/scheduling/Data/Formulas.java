@@ -10,6 +10,7 @@ public final class Formulas {
     }
     public static float penalty(Time waitingTime){
         long timeInSecond = TimeUnit.MILLISECONDS.toSeconds(waitingTime.getTime());
-        int k = 1;
+        long k = 1;
+        return (float) (k * timeInSecond);
     }
 }
