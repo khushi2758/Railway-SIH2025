@@ -1,8 +1,14 @@
 package com.railway.scheduling.Data;
 
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
+
 public final class Formulas {
     private Formulas(){}
     public static float baseCost(float trackLength,float maximumSpeedAllowed){
         return trackLength / maximumSpeedAllowed;
+    }
+    public static float penalty(Time waitingTime){
+        long timeInSecond = TimeUnit.MILLISECONDS.toSeconds(waitingTime.getTime());
     }
 }
