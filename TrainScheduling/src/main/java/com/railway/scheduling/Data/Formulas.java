@@ -14,6 +14,6 @@ public final class Formulas {
         return (float) (k * timeInSecond);
     }
     public static float trainSpecificCost(int priority,int deviationPenalty,boolean isOnList){
-
+        float alpha = (float) priority;
     }
 }
