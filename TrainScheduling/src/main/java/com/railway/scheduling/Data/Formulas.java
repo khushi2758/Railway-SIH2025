@@ -24,6 +24,6 @@ public final class Formulas {
     }
     public static float endTime(Time startTime,float trackLength, float trainLength,float trainSpeed){
         float startTimeInSecond = (float) (TimeUnit.MILLISECONDS.toSeconds(startTime.getTime()));
-
+        return (startTimeInSecond + ((trackLength + trainLength)/trainSpeed));
     }
 }
