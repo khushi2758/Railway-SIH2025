@@ -20,6 +20,6 @@ public final class Formulas {
         return ((alpha * baseCost(trackLength,maximumSpeedAllowed)) + (beta * edgeOnList));
     }
     public static float weight(int priority,int deviationPenalty,boolean isOnList,float trackLength,float maximumSpeedAllowed,Time waitingTime){
-
+        return (baseCost(trackLength,maximumSpeedAllowed) + penalty(waitingTime) + trainSpecificCost(priority,deviationPenalty,isOnList,trackLength,maximumSpeedAllowed));
     }
 }
