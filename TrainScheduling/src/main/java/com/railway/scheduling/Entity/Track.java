@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Data
@@ -15,5 +16,6 @@ public class Track {
     @Id
     private Long trackID;
     private Float maximumSpeed;
+    @Autowired
     private TrackStatus trackStatus;
 }
