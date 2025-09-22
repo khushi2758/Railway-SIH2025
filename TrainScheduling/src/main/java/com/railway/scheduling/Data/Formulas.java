@@ -23,6 +23,7 @@ public final class Formulas {
         return (baseCost(trackLength,maximumSpeedAllowed) + penalty(waitingTime) + trainSpecificCost(priority,deviationPenalty,isOnList,trackLength,maximumSpeedAllowed));
     }
     public static float endTime(Time startTime,float trackLength, float trainLength,float trainSpeed){
-        long startTimeInSecond = TimeUnit.MILLISECONDS.toSeconds(startTime.getTime());
+        float startTimeInSecond = (float) (TimeUnit.MILLISECONDS.toSeconds(startTime.getTime()));
+
     }
 }
