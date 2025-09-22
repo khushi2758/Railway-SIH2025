@@ -15,5 +15,6 @@ public final class Formulas {
     }
     public static float trainSpecificCost(int priority,int deviationPenalty,boolean isOnList){
         float alpha = (float) priority;
+        float beta = (float) deviationPenalty;
     }
 }
