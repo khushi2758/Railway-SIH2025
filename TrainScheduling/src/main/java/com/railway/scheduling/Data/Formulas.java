@@ -10,5 +10,6 @@ public final class Formulas {
     }
     public static float penalty(Time waitingTime){
         long timeInSecond = TimeUnit.MILLISECONDS.toSeconds(waitingTime.getTime());
+        int k = 1;
     }
 }
