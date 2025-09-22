@@ -19,4 +19,7 @@ public final class Formulas {
         float edgeOnList = (isOnList) ? 1 : 0;
         return ((alpha * baseCost(trackLength,maximumSpeedAllowed)) + (beta * edgeOnList));
     }
+    public static float weight(int priority,int deviationPenalty,boolean isOnList,float trackLength,float maximumSpeedAllowed,Time waitingTime){
+
+    }
 }
