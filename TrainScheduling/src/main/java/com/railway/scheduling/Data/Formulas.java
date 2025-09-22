@@ -17,5 +17,6 @@ public final class Formulas {
         float alpha = (float) priority;
         float beta = (float) deviationPenalty;
         float edgeOnList = (isOnList) ? 1 : 0;
+        return ((alpha * baseCost(trackLength,maximumSpeedAllowed)) + (beta * edgeOnList));
     }
 }
