@@ -6,7 +6,7 @@ public class Station implements Comparable<Station>{
     private int f; // g+h
     private Station parent;
     @Override
-    public int compareTo(Station o) {
-        return 0;
+    public int compareTo(Station other) {
+        return Integer.compare(this.f,other.f);
     }
 }
