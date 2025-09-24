@@ -1,5 +1,8 @@
 package com.railway.scheduling.DTO;
 
+import lombok.Data;
+
+@Data
 public class Station implements Comparable<Station>{
     private String name;
     private int g; //cost from start
