@@ -11,5 +11,6 @@ public class AstarAlgorithm {
         PriorityQueue<Station> openList = new PriorityQueue<>();
         Map<String,Integer> gScore = new HashMap<>();
         Set<String> closeSet = new HashSet<>();
+        gScore.put(start,0);
     }
 }
