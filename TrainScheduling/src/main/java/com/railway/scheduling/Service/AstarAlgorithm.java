@@ -6,6 +6,16 @@ import com.railway.scheduling.DTO.Station;
 import java.util.*;
 
 public class AstarAlgorithm {
+    private List<String> reconstructPath(Station goal){
+        List<String> path = new ArrayList<>();
+        Station current = goal;
+        while(current!=null){
+            path.add(current.getName());
+            current = current.getParent();
+        }
+        Collections.reverse(path);
+        return path;
+    }
     private final Map<String,Float> heuristic = new HashMap<>();
     public List<String> aStar(Map<String,List<Edge>> graph,String start,String goal){
         PriorityQueue<Station> openList = new PriorityQueue<>();
