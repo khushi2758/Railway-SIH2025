@@ -12,5 +12,6 @@ public class AstarAlgorithm {
         Map<String,Integer> gScore = new HashMap<>();
         Set<String> closeSet = new HashSet<>();
         gScore.put(start,0);
+        openList.add(new Station(start,0,heuristic.get(start),null));
     }
 }
