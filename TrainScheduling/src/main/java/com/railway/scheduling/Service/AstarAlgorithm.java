@@ -15,6 +15,9 @@ public class AstarAlgorithm {
         openList.add(new Station(start,0,heuristic.get(start),null));
         while (!openList.isEmpty()){
             Station current = openList.poll();
+            if(current.getName().equals(goal)){
+                return reconstructPath(current);
+            }
         }
     }
 }
