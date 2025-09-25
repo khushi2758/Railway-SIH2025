@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Station implements Comparable<Station>{
     private String name;
-    private int g; //cost from start
-    private int f; // g+h
+    private float g; //cost from start
+    private float f; // g+h
     private Station parent;
     @Override
     public int compareTo(Station other) {
-        return Integer.compare(this.f,other.f);
+        return Float.compare(this.f,other.f);
     }
 }
