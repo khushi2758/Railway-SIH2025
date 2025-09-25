@@ -3,10 +3,12 @@ package com.railway.scheduling.DTO;
 import com.railway.scheduling.Data.Formulas;
 import com.railway.scheduling.Entity.Track;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Time;
 
 @Data
+@NoArgsConstructor
 public class Edge {
     private Track track;
     private String target;
