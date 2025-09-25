@@ -13,5 +13,8 @@ public class AstarAlgorithm {
         Set<String> closeSet = new HashSet<>();
         gScore.put(start,0);
         openList.add(new Station(start,0,heuristic.get(start),null));
+        while (!openList.isEmpty()){
+
+        }
     }
 }
