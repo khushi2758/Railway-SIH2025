@@ -2,9 +2,11 @@ package com.railway.scheduling.DTO;
 
 import com.railway.scheduling.Data.Formulas;
 import com.railway.scheduling.Entity.Track;
+import lombok.Data;
 
 import java.sql.Time;
 
+@Data
 public class Edge {
     private Track track;
     private Float weight;
