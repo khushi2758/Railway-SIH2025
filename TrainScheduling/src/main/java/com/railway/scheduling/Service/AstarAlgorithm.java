@@ -9,7 +9,7 @@ public class AstarAlgorithm {
     private final Map<String,Integer> heuristic = new HashMap<>();
     public List<String> aStar(Map<String,List<Edge>> graph,String start,String goal){
         PriorityQueue<Station> openList = new PriorityQueue<>();
-        Map<String,String> gScore = new HashMap<>();
+        Map<String,Integer> gScore = new HashMap<>();
         Set<String> closeSet = new HashSet<>();
     }
 }
