@@ -14,7 +14,7 @@ public class AstarAlgorithm {
         gScore.put(start,0);
         openList.add(new Station(start,0,heuristic.get(start),null));
         while (!openList.isEmpty()){
-
+            Station current = openList.poll();
         }
     }
 }
