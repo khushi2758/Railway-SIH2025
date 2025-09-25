@@ -19,6 +19,9 @@ public class AstarAlgorithm {
                 return reconstructPath(current);
             }
             closeSet.add(current.getName());
+            for(Edge edge: graph.getOrDefault(current.getName(),new ArrayList<>())){
+
+            }
         }
     }
 }
