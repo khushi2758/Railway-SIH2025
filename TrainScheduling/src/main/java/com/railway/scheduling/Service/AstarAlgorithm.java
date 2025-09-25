@@ -20,7 +20,8 @@ public class AstarAlgorithm {
             }
             closeSet.add(current.getName());
             for(Edge edge: graph.getOrDefault(current.getName(),new ArrayList<>())){
-
+//                if(closeSet.contains(edge.))
+                float tentativeG = current.getG() + edge.getWeight();
             }
         }
     }
