@@ -18,6 +18,7 @@ public class AstarAlgorithm {
             if(current.getName().equals(goal)){
                 return reconstructPath(current);
             }
+            closeSet.add(current.getName());
         }
     }
 }
