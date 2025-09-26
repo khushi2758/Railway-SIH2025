@@ -13,5 +13,8 @@ public class TrackDataInsertion {
         Track track = new Track();
         track.setTrackID(trackId);
         track.setMaximumSpeed(maximumSpeed);
+        try{
+
+        }
     }
 }
