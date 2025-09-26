@@ -11,6 +11,9 @@ public class TrackDataInsertion {
     private TrackRepository trackRepository;
     public String insertTrackData(long trackId, float maximumSpeed){
         try{
+            if(trackRepository.existsById(trackId)){
+                return "track exist already";
+            }
             Track track = new Track();
             track.setTrackID(trackId);
             track.setMaximumSpeed(maximumSpeed);
