@@ -11,5 +11,7 @@ public class TrackDataInsertion {
     private TrackRepository trackRepository;
     public String insertTrackData(long trackId, float maximumSpeed){
         Track track = new Track();
+        track.setTrackID(trackId);
+        track.setMaximumSpeed(maximumSpeed);
     }
 }
