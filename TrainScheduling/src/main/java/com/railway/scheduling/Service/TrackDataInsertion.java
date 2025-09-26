@@ -19,6 +19,9 @@ public class TrackDataInsertion {
             track.setMaximumSpeed(maximumSpeed);
             trackRepository.save(track);
             return "OK";
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "some thing went wrong";
         }
     }
 }
