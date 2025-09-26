@@ -2,9 +2,11 @@ package com.railway.scheduling.Service;
 
 import com.railway.scheduling.DTO.Edge;
 import com.railway.scheduling.DTO.Station;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class AstarAlgorithm {
     private List<String> reconstructPath(Station goal){
         List<String> path = new ArrayList<>();
