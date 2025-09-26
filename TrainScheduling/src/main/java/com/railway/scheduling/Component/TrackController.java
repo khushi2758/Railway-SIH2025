@@ -15,6 +15,6 @@ public class TrackController {
     @Autowired
     private TrackDataInsertion trackDataInsertion;
     public ResponseEntity<Map<String,String>> TrackRegistration(@RequestParam String id, String maxSpeed){
-
+        long trackId = Long.parseLong(id);
     }
 }
