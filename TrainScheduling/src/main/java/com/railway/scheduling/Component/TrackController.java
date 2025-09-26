@@ -17,5 +17,6 @@ public class TrackController {
     public ResponseEntity<Map<String,String>> TrackRegistration(@RequestParam String id, String maxSpeed){
         long trackId = Long.parseLong(id);
         float maxSpeedAllowed = Float.parseFloat(maxSpeed);
+        String res = trackDataInsertion.insertTrackData(trackId,maxSpeedAllowed);
     }
 }
