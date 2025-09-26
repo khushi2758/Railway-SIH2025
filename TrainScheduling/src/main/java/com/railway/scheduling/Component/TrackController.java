@@ -18,5 +18,6 @@ public class TrackController {
         long trackId = Long.parseLong(id);
         float maxSpeedAllowed = Float.parseFloat(maxSpeed);
         String res = trackDataInsertion.insertTrackData(trackId,maxSpeedAllowed);
+        Map<String,String> map = Map.of("Result",res);
     }
 }
