@@ -38,6 +38,8 @@ public class TrainService {
         List<Train> trains = new ArrayList<>();
         try{
             trains = trainRepository.findAll();
+        }catch (Exception e){
+
         }
     }
 }
