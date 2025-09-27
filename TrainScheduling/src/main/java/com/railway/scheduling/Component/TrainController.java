@@ -21,7 +21,7 @@ public class TrainController {
         Long trainId = Long.parseLong(trainDTO.getTrainId());
         Time departureTime = Time.valueOf(trainDTO.getDepartureTime());
         Time startBlockTimeInterval = Time.valueOf(trainDTO.getStartBlockTimeInterval());
-        Time endTimeCoverBlock = trainDTO.getEndTimeCoverBlock();
+        Time endTimeCoverBlock = Time.valueOf(trainDTO.getEndTimeCoverBlock());
         Float trainLength = trainDTO.getTrainLength();
         Float trainSpeed = trainDTO.getTrainSpeed();
         Integer priority = trainDTO.getPriority();
