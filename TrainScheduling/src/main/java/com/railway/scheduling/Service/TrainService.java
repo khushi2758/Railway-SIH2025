@@ -15,7 +15,8 @@ public class TrainService {
             Train train = new Train();
             train.setTrainId(trainId);
             train.setDepartureTime(departureTime);
-            train.setStarBlockTimeInterval(startBlockTimeInterval);
+            train.setStartBlockTimeInterval(startBlockTimeInterval);
+            train.setEndTimeCoverBlock(endTimeCoverBlock);
         }
     }
 }
