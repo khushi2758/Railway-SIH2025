@@ -39,7 +39,7 @@ public class TrainService {
         try{
             trains = trainRepository.findAll();
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
     }
 }
