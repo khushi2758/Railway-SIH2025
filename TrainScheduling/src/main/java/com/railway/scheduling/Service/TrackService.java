@@ -32,7 +32,7 @@ public class TrackService {
         try{
             tracks = trackRepository.findAll();
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
     }
 }
