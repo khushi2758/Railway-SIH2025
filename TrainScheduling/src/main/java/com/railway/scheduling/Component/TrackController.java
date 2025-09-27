@@ -16,7 +16,7 @@ public class TrackController {
     @Autowired
     private TrackService trackDataInsertion;
     public ResponseEntity<Map<String,String>> TrackRegistration(@RequestBody TrackDTO trackDTO){
-        long trackId = Long.parseLong(id);
+        long trackId = Long.parseLong(trackDTO.getTrackID());
         float maxSpeedAllowed = Float.parseFloat(maxSpeed);
         String res = trackDataInsertion.insertTrackData(trackId,maxSpeedAllowed);
         Map<String,String> map = Map.of("Result",res);
