@@ -1,6 +1,6 @@
 package com.railway.scheduling.Component;
 
-import com.railway.scheduling.Service.TrackDataInsertion;
+import com.railway.scheduling.Service.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping("/track")
 public class TrackController {
     @Autowired
-    private TrackDataInsertion trackDataInsertion;
+    private TrackService trackDataInsertion;
     public ResponseEntity<Map<String,String>> TrackRegistration(@RequestParam String id, String maxSpeed){
         long trackId = Long.parseLong(id);
         float maxSpeedAllowed = Float.parseFloat(maxSpeed);
