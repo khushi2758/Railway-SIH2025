@@ -20,6 +20,8 @@ public class TrackService {
             Track track = new Track();
             track.setTrackID(trackId);
             track.setMaximumSpeed(maximumSpeed);
+            track.setSourceStation(sourceStation);
+            track.setDestinationStation(destinationStation);
             trackRepository.save(track);
             return "OK";
         }catch (Exception e){
