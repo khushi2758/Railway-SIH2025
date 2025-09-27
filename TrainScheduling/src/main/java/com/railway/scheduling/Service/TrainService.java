@@ -19,6 +19,7 @@ public class TrainService {
             train.setEndTimeCoverBlock(endTimeCoverBlock);
             train.setTrainLength(trainLength);
             train.setTrainSpeed(trainSpeed);
+            train.setPriority(priority);
         }
     }
 }
