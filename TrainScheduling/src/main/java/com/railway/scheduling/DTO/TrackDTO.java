@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TrackDTO {
-    private Long trackID;
-    private Float maximumSpeed;
+    private String trackID;
+    private String maximumSpeed;
     private String SourceStation;
     private String DestinationStation;
 }
