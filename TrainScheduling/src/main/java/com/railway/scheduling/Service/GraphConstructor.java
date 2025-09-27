@@ -14,5 +14,7 @@ public class GraphConstructor {
     public List<String> SortestPathUsingAstar(){
         Map<String,List<Edge>> graph = new HashMap<>();
         List<Track> tracks = trackService.getTracks();
+        for(int i=0;i<tracks.size();i++){
+        }
     }
 }
