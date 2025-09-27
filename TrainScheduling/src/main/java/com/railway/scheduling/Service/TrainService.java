@@ -24,7 +24,9 @@ public class TrainService {
             train.setIsOnList(isOnList);
             train.setWaitingTime(waitingTime);
             trainRepository.save(train);
-            return "OK"
+            return "OK";
+        }catch (Exception e){
+
         }
     }
 }
