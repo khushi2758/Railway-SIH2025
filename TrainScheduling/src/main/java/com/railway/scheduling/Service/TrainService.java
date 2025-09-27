@@ -12,7 +12,7 @@ public class TrainService {
     private TrainRepository trainRepository;
     public String TrainRegistration(Long trainId, Time departureTime, Time starBlockTimeInterval, Time endTimeCoverBlock, Float trainLength, Float trainSpeed, Integer priority, Float deviationPenalty, Boolean isOnList, Time waitingTime){
         try{
-
+            Train train = new Train();
         }
     }
 }
