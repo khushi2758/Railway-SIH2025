@@ -20,7 +20,7 @@ public class TrackController {
         float maxSpeedAllowed = Float.parseFloat(trackDTO.getMaximumSpeed());
         String sourceStation = trackDTO.getSourceStation();
         String destinationStation = trackDTO.getDestinationStation();
-        String res = trackDataInsertion.insertTrackData(trackId,maxSpeedAllowed);
+        String res = trackDataInsertion.insertTrackData(trackId,maxSpeedAllowed,sourceStation,destinationStation);
         Map<String,String> map = Map.of("Result",res);
         return ResponseEntity.ok(map);
     }
