@@ -31,6 +31,8 @@ public class TrackService {
         List<Track> tracks = new ArrayList<>();
         try{
             tracks = trackRepository.findAll();
+        }catch (Exception e){
+
         }
     }
 }
