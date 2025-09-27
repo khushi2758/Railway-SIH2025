@@ -22,4 +22,6 @@ public class Train {
     private Float trainSpeed;
     private Integer priority;
     private Float deviationPenalty;
+    private Boolean isOnList;
+    private Time waitingTime;
 }
