@@ -22,6 +22,7 @@ public class TrainService {
             train.setPriority(priority);
             train.setDeviationPenalty(deviationPenalty);
             train.setIsOnList(isOnList);
+            train.setWaitingTime(waitingTime);
         }
     }
 }
