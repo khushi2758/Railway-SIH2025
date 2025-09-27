@@ -5,6 +5,7 @@ import com.railway.scheduling.Repository.TrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrainService {
@@ -34,6 +35,7 @@ public class TrainService {
         }
     }
     public List<Train> getTrains(){
+        List<Train> trains = new ArrayList<>();
         try{
 
         }
