@@ -21,4 +21,5 @@ public class Train {
     private Float trainLength;
     private Float trainSpeed;
     private Integer priority;
+    private Float deviationPenalty;
 }
