@@ -14,6 +14,7 @@ public class TrainService {
         try{
             Train train = new Train();
             train.setTrainId(trainId);
+            train.setDepartureTime(departureTime);
         }
     }
 }
