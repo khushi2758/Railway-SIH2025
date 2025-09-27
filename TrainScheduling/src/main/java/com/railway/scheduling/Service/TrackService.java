@@ -5,13 +5,14 @@ import com.railway.scheduling.Repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class TrackDataInsertion {
+public class TrackService {
     @Autowired
     private TrackRepository trackRepository;
-    public String insertTrackData(long trackId, float maximumSpeed){
+    public String insertTrackData(long trackId, float maximumSpeed,String sourceStation,String destinationStation){
         try{
             if(trackRepository.existsById(trackId)){
                 return "track exist already";
@@ -19,11 +20,22 @@ public class TrackDataInsertion {
             Track track = new Track();
             track.setTrackID(trackId);
             track.setMaximumSpeed(maximumSpeed);
+            track.setSourceStation(sourceStation);
+            track.setDestinationStation(destinationStation);
             trackRepository.save(track);
             return "OK";
         }catch (Exception e){
             System.out.println(e.getMessage());
             return "some thing went wrong";
         }
+    }
+    public List<Track> getTracks(){
+        List<Track> tracks = new ArrayList<>();
+        try{
+            tracks = trackRepository.findAll();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return tracks;
     }
 }

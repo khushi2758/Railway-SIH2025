@@ -32,12 +32,12 @@ public class AstarAlgorithm {
             }
             closeSet.add(current.getName());
             for(Edge edge: graph.getOrDefault(current.getName(),new ArrayList<>())){
-                if(closeSet.contains(edge.getTarget())) continue;
+                if(closeSet.contains(edge.getTrack().getDestinationStation())) continue;
                 float tentativeG = current.getG() + edge.getWeight();
-                if(tentativeG< gScore.getOrDefault(edge.getTarget(),Float.MAX_VALUE)){
-                    gScore.put(edge.getTarget(),tentativeG);
-                    float f = tentativeG + heuristic.getOrDefault(edge.getTarget(),0.0F);
-                    Station neighbor = new Station(edge.getTarget(), tentativeG,f,current);
+                if(tentativeG< gScore.getOrDefault(edge.getTrack().getDestinationStation(),Float.MAX_VALUE)){
+                    gScore.put(edge.getTrack().getDestinationStation(),tentativeG);
+                    float f = tentativeG + heuristic.getOrDefault(edge.getTrack().getDestinationStation(),0.0F);
+                    Station neighbor = new Station(edge.getTrack().getDestinationStation(), tentativeG,f,current);
                     openList.add(neighbor);
                 }
             }

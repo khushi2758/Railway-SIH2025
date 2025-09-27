@@ -16,8 +16,12 @@ public class Train {
     @Id
     private Long trainId;
     private Time departureTime;
-    private Time starBlockTimeInterval;
+    private Time startBlockTimeInterval;
     private Time endTimeCoverBlock;
     private Float trainLength;
     private Float trainSpeed;
+    private Integer priority;
+    private Float deviationPenalty;
+    private Boolean isOnList;
+    private Time waitingTime;
 }

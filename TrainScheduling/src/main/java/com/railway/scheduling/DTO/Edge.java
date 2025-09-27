@@ -11,11 +11,9 @@ import java.sql.Time;
 @NoArgsConstructor
 public class Edge {
     private Track track;
-    private String target;
     private Float weight;
-    public Edge(String target,Track track, int priority, int deviationPenalty, boolean isOnList, float trackLength, Time waitingTime){
+    public Edge(Track track, int priority, int deviationPenalty, boolean isOnList, Time waitingTime){
         this.track = track;
-        this.weight = Formulas.weight(priority,deviationPenalty,isOnList,trackLength,track.getMaximumSpeed(),waitingTime);
-        this.target = target;
+        this.weight = Formulas.weight(priority,deviationPenalty,isOnList,track.getTrackLength(),track.getMaximumSpeed(),waitingTime);
     }
 }
