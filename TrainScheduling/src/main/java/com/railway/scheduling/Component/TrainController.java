@@ -19,7 +19,7 @@ public class TrainController {
     public ResponseEntity<Map<String,String>> RegisterTrain(@RequestBody TrainDTO trainDTO){
         Long trainId = trainDTO.getTrainId();
         Time departureTime = trainDTO.getDepartureTime();
-        Time startBlockTimeInterval =
+        Time startBlockTimeInterval = trainDTO.getStartBlockTimeInterval();
         Time endTimeCoverBlock =
         Float trainLength =
         Float trainSpeed =
