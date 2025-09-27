@@ -8,6 +8,17 @@ export default function Home() {
   return (
     <>
     
+
+
+
+
+
+
+
+
+
+
+    
     <NavbarDemo />
     <main className="min-h-screen overflow-y-scroll">
       <Hero />
