@@ -14,6 +14,6 @@ public class Edge {
     private Float weight;
     public Edge(Track track, int priority, int deviationPenalty, boolean isOnList, float trackLength, Time waitingTime){
         this.track = track;
-        this.weight = Formulas.weight(priority,deviationPenalty,isOnList,trackLength,track.getMaximumSpeed(),waitingTime);
+        this.weight = Formulas.weight(priority,deviationPenalty,isOnList,track.getTrackLength(),track.getMaximumSpeed(),waitingTime);
     }
 }
