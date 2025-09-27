@@ -29,5 +29,6 @@ public class TrainController {
         Boolean isOnList = Boolean.parseBoolean(trainDTO.getIsOnList());
         Time waitingTime = Time.valueOf(trainDTO.getWaitingTime());
         String result = trainService.TrainRegistration(trainId,departureTime,startBlockTimeInterval,endTimeCoverBlock,trainLength,trainSpeed,priority,deviationPenalty,isOnList,waitingTime);
+        return ResponseEntity.ok(Map.of("Status",result));
     }
 }
