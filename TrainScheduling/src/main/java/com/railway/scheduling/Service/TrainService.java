@@ -12,6 +12,9 @@ public class TrainService {
     private TrainRepository trainRepository;
     public String TrainRegistration(Long trainId, Time departureTime, Time startBlockTimeInterval, Time endTimeCoverBlock, Float trainLength, Float trainSpeed, Integer priority, Float deviationPenalty, Boolean isOnList, Time waitingTime){
         try{
+            if(trainRepository.existsById(trainId)){
+                return "train already register!";
+            }
             Train train = new Train();
             train.setTrainId(trainId);
             train.setDepartureTime(departureTime);
