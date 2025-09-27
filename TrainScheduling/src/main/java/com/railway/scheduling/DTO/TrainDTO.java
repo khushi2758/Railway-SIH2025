@@ -1,5 +1,8 @@
 package com.railway.scheduling.DTO;
 
+import lombok.Data;
+
+@Data
 public class TrainDTO {
     private Long trainId;
     private String departureTime;
