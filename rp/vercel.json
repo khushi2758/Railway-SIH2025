@@ -1,13 +1,8 @@
 {
-  "build": {
-    "env": {
-      "NEXT_FONT_PREBUNDLED": "1"
-    }
-  },
  "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ]
 }
