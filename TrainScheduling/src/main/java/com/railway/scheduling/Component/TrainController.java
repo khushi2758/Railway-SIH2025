@@ -18,7 +18,7 @@ public class TrainController {
     private TrainService trainService;
     public ResponseEntity<Map<String,String>> RegisterTrain(@RequestBody TrainDTO trainDTO){
         Long trainId = trainDTO.getTrainId();
-        Time departureTime =
+        Time departureTime = trainDTO.getDepartureTime();
         Time startBlockTimeInterval =
         Time endTimeCoverBlock =
         Float trainLength =
