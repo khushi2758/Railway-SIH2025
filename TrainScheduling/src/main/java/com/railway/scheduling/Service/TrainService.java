@@ -33,4 +33,7 @@ public class TrainService {
             return "Some thing went wrong!";
         }
     }
+    public List<Train> getTrains(){
+
+    }
 }
