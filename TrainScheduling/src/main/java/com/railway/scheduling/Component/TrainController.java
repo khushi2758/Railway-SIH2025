@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Time;
 import java.util.Map;
 
 @RestController
@@ -16,6 +17,15 @@ public class TrainController {
     @Autowired
     private TrainService trainService;
     public ResponseEntity<Map<String,String>> RegisterTrain(@RequestBody TrainDTO trainDTO){
-
+        Long trainId = trainDTO.getTrainId();
+        Time departureTime =
+        Time startBlockTimeInterval =
+        Time endTimeCoverBlock =
+        Float trainLength =
+        Float trainSpeed =
+        Integer priority =
+        Float deviationPenalty =
+        Boolean isOnList =
+        Time waitingTime =
     }
 }
