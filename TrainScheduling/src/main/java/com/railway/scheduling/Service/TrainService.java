@@ -20,6 +20,7 @@ public class TrainService {
             train.setTrainLength(trainLength);
             train.setTrainSpeed(trainSpeed);
             train.setPriority(priority);
+            train.setDeviationPenalty(deviationPenalty);
         }
     }
 }
