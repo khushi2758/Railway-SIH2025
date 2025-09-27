@@ -26,7 +26,7 @@ public class TrainService {
             trainRepository.save(train);
             return "OK";
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
     }
 }
