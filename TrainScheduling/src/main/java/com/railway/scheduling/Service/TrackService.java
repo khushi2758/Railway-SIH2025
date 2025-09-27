@@ -28,7 +28,7 @@ public class TrackService {
     }
     public List<Track> getTracks(){
         try{
-
+            trackRepository.findAll();
         }
     }
 }
