@@ -30,7 +30,7 @@ public class TrackService {
     public List<Track> getTracks(){
         List<Track> tracks = new ArrayList<>();
         try{
-            List<Track> tracks = trackRepository.findAll();
+            tracks = trackRepository.findAll();
         }
     }
 }
