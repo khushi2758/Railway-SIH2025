@@ -28,5 +28,6 @@ public class TrainController {
         Float deviationPenalty = Float.parseFloat(trainDTO.getDeviationPenalty());
         Boolean isOnList = Boolean.parseBoolean(trainDTO.getIsOnList());
         Time waitingTime = Time.valueOf(trainDTO.getWaitingTime());
+        trainService.TrainRegistration(trainId,departureTime,startBlockTimeInterval,endTimeCoverBlock,trainLength,trainSpeed,priority,deviationPenalty,isOnList,waitingTime);
     }
 }
