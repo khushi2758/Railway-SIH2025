@@ -22,7 +22,7 @@ public class TrainController {
         Time departureTime = Time.valueOf(trainDTO.getDepartureTime());
         Time startBlockTimeInterval = Time.valueOf(trainDTO.getStartBlockTimeInterval());
         Time endTimeCoverBlock = Time.valueOf(trainDTO.getEndTimeCoverBlock());
-        Float trainLength = trainDTO.getTrainLength();
+        Float trainLength = Float.parseFloat(trainDTO.getTrainLength());
         Float trainSpeed = trainDTO.getTrainSpeed();
         Integer priority = trainDTO.getPriority();
         Float deviationPenalty = trainDTO.getDeviationPenalty();
