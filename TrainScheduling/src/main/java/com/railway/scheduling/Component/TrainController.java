@@ -23,7 +23,7 @@ public class TrainController {
         Time endTimeCoverBlock = trainDTO.getEndTimeCoverBlock();
         Float trainLength = trainDTO.getTrainLength();
         Float trainSpeed = trainDTO.getTrainSpeed();
-        Integer priority =
+        Integer priority = trainDTO.getPriority();
         Float deviationPenalty =
         Boolean isOnList =
         Time waitingTime =
