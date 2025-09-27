@@ -23,6 +23,7 @@ public class TrainService {
             train.setDeviationPenalty(deviationPenalty);
             train.setIsOnList(isOnList);
             train.setWaitingTime(waitingTime);
+            trainRepository.save(train);
         }
     }
 }
