@@ -10,11 +10,12 @@ import java.util.List;
 public class TrainService {
     @Autowired
     private TrainRepository trainRepository;
-    public String TrainRegistration(Long trainId, Time departureTime, Time starBlockTimeInterval, Time endTimeCoverBlock, Float trainLength, Float trainSpeed, Integer priority, Float deviationPenalty, Boolean isOnList, Time waitingTime){
+    public String TrainRegistration(Long trainId, Time departureTime, Time startBlockTimeInterval, Time endTimeCoverBlock, Float trainLength, Float trainSpeed, Integer priority, Float deviationPenalty, Boolean isOnList, Time waitingTime){
         try{
             Train train = new Train();
             train.setTrainId(trainId);
             train.setDepartureTime(departureTime);
+            train.setStarBlockTimeInterval(startBlockTimeInterval);
         }
     }
 }
