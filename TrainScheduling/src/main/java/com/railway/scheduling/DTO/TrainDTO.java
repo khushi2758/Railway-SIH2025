@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TrainDTO {
-    private Long trainId;
+    private String trainId;
     private String departureTime;
     private String startBlockTimeInterval;
     private String endTimeCoverBlock;
