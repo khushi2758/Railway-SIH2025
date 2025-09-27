@@ -37,7 +37,7 @@ public class TrainService {
     public List<Train> getTrains(){
         List<Train> trains = new ArrayList<>();
         try{
-
+            trains = trainRepository.findAll();
         }
     }
 }
