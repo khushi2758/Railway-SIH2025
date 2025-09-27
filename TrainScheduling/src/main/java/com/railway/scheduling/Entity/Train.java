@@ -20,4 +20,5 @@ public class Train {
     private Time endTimeCoverBlock;
     private Float trainLength;
     private Float trainSpeed;
+    private Integer priority;
 }
