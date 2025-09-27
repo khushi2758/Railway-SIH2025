@@ -1,8 +1,10 @@
 package com.railway.scheduling.DTO;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class TrainDTO {
     private Long trainId;
     private String departureTime;
