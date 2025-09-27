@@ -12,7 +12,7 @@ import java.util.List;
 public class TrackService {
     @Autowired
     private TrackRepository trackRepository;
-    public String insertTrackData(long trackId, float maximumSpeed){
+    public String insertTrackData(long trackId, float maximumSpeed,String sourceStation,String destinationStation){
         try{
             if(trackRepository.existsById(trackId)){
                 return "track exist already";
