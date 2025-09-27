@@ -16,6 +16,7 @@ public class Track {
     @Id
     private Long trackID;
     private Float maximumSpeed;
+    private String Station;
 //    @Autowired
 //    private TrackStatus trackStatus;
 }
