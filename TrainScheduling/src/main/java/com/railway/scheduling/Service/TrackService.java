@@ -5,6 +5,8 @@ import com.railway.scheduling.Repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TrackService {
     @Autowired
@@ -23,5 +25,8 @@ public class TrackService {
             System.out.println(e.getMessage());
             return "some thing went wrong";
         }
+    }
+    public List<Track> getTracks(){
+
     }
 }
