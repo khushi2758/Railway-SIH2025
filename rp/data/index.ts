@@ -1,4 +1,4 @@
-"use client";
+
 //nav bar details
 interface NavItem {
   name: string;
