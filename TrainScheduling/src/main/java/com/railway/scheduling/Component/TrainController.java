@@ -26,6 +26,6 @@ public class TrainController {
         Integer priority = trainDTO.getPriority();
         Float deviationPenalty = trainDTO.getDeviationPenalty();
         Boolean isOnList = trainDTO.getIsOnList();
-        Time waitingTime =
+        Time waitingTime = trainDTO.getWaitingTime();
     }
 }
