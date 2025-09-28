@@ -13,13 +13,13 @@ public final class Formulas {
         long k = 1;
         return (float) (k * timeInSecond);
     }
-    public static float trainSpecificCost(int priority,int deviationPenalty,boolean isOnList,float trackLength, float maximumSpeedAllowed){
+    public static float trainSpecificCost(int priority,float deviationPenalty,boolean isOnList,float trackLength, float maximumSpeedAllowed){
         float alpha = (float) priority;
-        float beta = (float) deviationPenalty;
+        float beta = deviationPenalty;
         float edgeOnList = (isOnList) ? 1 : 0;
         return ((alpha * baseCost(trackLength,maximumSpeedAllowed)) + (beta * edgeOnList));
     }
-    public static float weight(int priority,int deviationPenalty,boolean isOnList,float trackLength,float maximumSpeedAllowed,Time waitingTime){
+    public static float weight(int priority,float deviationPenalty,boolean isOnList,float trackLength,float maximumSpeedAllowed,Time waitingTime){
         return (baseCost(trackLength,maximumSpeedAllowed) + penalty(waitingTime) + trainSpecificCost(priority,deviationPenalty,isOnList,trackLength,maximumSpeedAllowed));
     }
     public static float endTime(Time startTime,float trackLength, float trainLength,float trainSpeed){
