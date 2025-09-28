@@ -19,6 +19,7 @@ public class GraphConstructor {
         List<Track> tracks = trackService.getTracks();
         List<Train> trains = trainService.getTrains();
         for(int i=0;i<tracks.size();i++){
+            Edge edge = new Edge(tracks.get(i),trains.get(i).getPriority(),trains.get(i).getDeviationPenalty(),trains.get(i).getIsOnList(),trains.get(i).getWaitingTime());
         }
     }
 }
