@@ -11,6 +11,7 @@ import java.util.Map;
 public class GraphConstructor {
     @Autowired
     private TrackService trackService;
+    private TrainService trainService;
     public List<String> SortestPathUsingAstar(){
         Map<String,List<Edge>> graph = new HashMap<>();
         List<Track> tracks = trackService.getTracks();
