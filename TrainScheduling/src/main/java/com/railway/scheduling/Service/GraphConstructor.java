@@ -2,6 +2,7 @@ package com.railway.scheduling.Service;
 
 import com.railway.scheduling.DTO.Edge;
 import com.railway.scheduling.Entity.Track;
+import com.railway.scheduling.Entity.Train;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
@@ -16,7 +17,7 @@ public class GraphConstructor {
     public List<String> SortestPathUsingAstar(){
         Map<String,List<Edge>> graph = new HashMap<>();
         List<Track> tracks = trackService.getTracks();
-        trainService.getTrains();
+        List<Train> trains = trainService.getTrains();
         for(int i=0;i<tracks.size();i++){
         }
     }
