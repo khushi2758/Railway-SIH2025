@@ -5,6 +5,7 @@ import com.railway.scheduling.Entity.Train;
 import com.railway.scheduling.Service.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import java.util.Map;
 public class TrainController {
     @Autowired
     private TrainService trainService;
+    @PostMapping("/register")
     public ResponseEntity<Map<String,String>> RegisterTrain(@RequestBody TrainDTO trainDTO){
         Long trainId = Long.parseLong(trainDTO.getTrainId());
         Time departureTime = Time.valueOf(trainDTO.getDepartureTime());
