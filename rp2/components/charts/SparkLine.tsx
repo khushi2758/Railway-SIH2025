@@ -25,16 +25,16 @@ const SparkLine: React.FC<SparkLineProps> = ({name, number,data}) => {
         // For the examples page
         ['@container (width < 600px)']: {
           flexWrap: 'wrap',
-          maxWidth: '70%',
+          maxWidth: '100%',
       
         },
       }}
       gap={1}
     >
-      <div className='p-3 text-center  text-4xl font-extrabold '>{number}k</div>
+      <div className='p-3 text-center  text-4xl font-extrabold  '>{number}k</div>
       <Box flexGrow={1}>
         
-        <SparkLineChart data={data} height={100}  width={100}/>
+        <SparkLineChart data={data} height={90}  width={200}/>
       </Box>
      
     </Stack>

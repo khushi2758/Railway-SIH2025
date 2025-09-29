@@ -1,9 +1,9 @@
 import React from 'react'
-import Charts from '@/components/charts'
+import Charts from '@/components/home/charts'
 const Home = () => {
   return (
      <>
-    <div className='flex   items-center  text-gray-400 flex-row gap-4 md:gap-10  sm:items-start pt-40 pb-14'>
+    <div className='flex   items-center  text-gray-400 flex-row gap-4 md:gap-10  sm:pl-6 pt-40 pb-44 pr-10'>
       <h1 className='relative z-4 flex flex-col justify-center   md:px-20 text-left'>
       <div className='text-4xl md:text-6xl font-extrabold font-mono text-shadow-amber-950  text-gray-400'>Welcome to <br /> Railway Asset <br /><p className='text-cyan-200'>Management System</p></div>
     
@@ -30,7 +30,7 @@ const Home = () => {
       </div>
       
       </div>
-     <Charts />
+     <Charts/>
    </>
   )
 }

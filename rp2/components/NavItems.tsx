@@ -12,7 +12,7 @@ const NavItems = () => {
     return pathname.startsWith(name);
     }
   return (
-    <ul className = "flex flex-col sm:flex-row p-2 gap-10 font-mono  text-gray-200">
+    <ul className = "flex flex-col sm:flex-row p-2 gap-10 font-mono  text-gray-200 ">
      {NAV_ITEMS.map((item)=>(
       <li key={item.name}> 
       <Link href={item.href} className={`hover:text-cyan-500 cursor-pointer transition-colors ${
