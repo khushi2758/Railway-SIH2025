@@ -1,4 +1,5 @@
 "use client";
+import TrainMap from "@/components/map/TrainMap";
 import React from "react";
 
 const Page = () => {
@@ -77,7 +78,9 @@ const Page = () => {
             <h2 className="text-xl font-semibold text-cyan-300 mb-4">Network Operations Map</h2>
             <div className="w-full h-96 bg-gradient-to-br from-[#0d1320] to-[#1a2335] rounded-lg border border-gray-600 flex items-center justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent animate-pulse"></div>
-              <p className="text-gray-400 text-sm">Simulated Live Railway Network</p>
+              
+              <TrainMap/>
+
             </div>
           </div>
 
