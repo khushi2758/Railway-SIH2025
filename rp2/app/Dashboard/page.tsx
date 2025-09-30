@@ -1,6 +1,6 @@
 "use client";
 import TrainMap from "@/components/map/TrainMap";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Page = () => {
   // Sample data
@@ -23,6 +23,21 @@ const Page = () => {
     { name: "Team Beta", shift: "14:00-22:00", trains: 6, status: "Standby" },
     { name: "Team Gamma", shift: "22:00-06:00", trains: 4, status: "Resting" }
   ];
+
+  // State for platform utilization data
+  const [platformUtilization, setPlatformUtilization] = useState<Array<{width: string; percentage: number}>>([]);
+
+  // Initialize random values only on client side
+  useEffect(() => {
+    const utilization = Array.from({ length: 8 }, () => {
+      const percentage = Math.floor(Math.random() * 40 + 60);
+      return {
+        width: `${Math.random() * 60 + 40}%`,
+        percentage
+      };
+    });
+    setPlatformUtilization(utilization);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-white p-6 space-y-8">
@@ -193,13 +208,16 @@ const Page = () => {
         <div className="bg-[#141a29] border border-gray-700 p-6 rounded-xl">
           <h2 className="text-lg font-semibold text-purple-300 mb-4">Platform Utilization</h2>
           <div className="space-y-3">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map(p => (
-              <div key={p} className="flex items-center justify-between">
-                <span className="text-sm text-gray-300">Platform {p}</span>
+            {platformUtilization.map((platform, index) => (
+              <div key={index} className="flex items-center justify-between">
+                <span className="text-sm text-gray-300">Platform {index + 1}</span>
                 <div className="w-32 bg-gray-700 rounded-full h-2">
-                  <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: `${Math.random() * 60 + 40}%` }}></div>
+                  <div 
+                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" 
+                    style={{ width: platform.width || "50%" }}
+                  ></div>
                 </div>
-                <span className="text-sm text-gray-400">{Math.floor(Math.random() * 40 + 60)}%</span>
+                <span className="text-sm text-gray-400">{platform.percentage || 0}%</span>
               </div>
             ))}
           </div>
