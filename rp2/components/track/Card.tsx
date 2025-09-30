@@ -1,66 +1,53 @@
-"use client";
 import React from "react";
-
+import { Card as MUICard, CardContent, Typography, Stack } from "@mui/material";
+import LinearProgress, { linearProgressClasses } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import Stack from "@mui/material/Stack";
-import LinearProgress, {
-  linearProgressClasses,
-} from "@mui/material/LinearProgress";
-
-interface Data {
-  title: string;
-  persentage?: number;
-}
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor: theme.palette.grey[200],
-    ...theme.applyStyles("dark", {
-      backgroundColor: theme.palette.grey[800],
-    }),
+    backgroundColor: theme.palette.grey[800],
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: "#788f8e",
-    ...theme.applyStyles("dark", {
-      backgroundColor: "#308fe8",
-    }),
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
-export const Card: React.FC<Data> = ({ title, persentage }) => {
+interface Props {
+  title: string;
+  percentage: string | number;
+}
+
+export const Card = ({ title, percentage }: Props) => {
+  // Try to extract number if percentage is a string
+  const numericValue =
+    typeof percentage === "string"
+      ? parseFloat(percentage.replace(/[^0-9.]/g, "")) || 0
+      : percentage;
+
+  const showProgress = !isNaN(numericValue) && numericValue > 0 && numericValue <= 100;
+
   return (
+    <MUICard sx={{ minWidth: 200, bgcolor: "grey.900", color: "white" }}>
+      <CardContent>
+        <Typography variant="subtitle1" gutterBottom>
+          {title}
+        </Typography>
 
-<><div className="border border-cyan-400/20 backdrop-blur-md overflow-hidden
-      shadow-[0_0_25px_rgba(34,211,238,0.12)] hover:shadow-[0_0_35px_rgba(34,211,238,0.3)] 
-       duration-300 p-11
-    ">
-      
-      {/* Title */}
-      <p className="text-lg sm:text-xl font-light tracking-widest text-cyan-300 mb-6 ">
-        {title}
-      </p>
+        {/* Progress Bar only if it's a valid number */}
+        {showProgress && (
+          <Stack spacing={2} sx={{ flexGrow: 1 }}>
+            <BorderLinearProgress variant="determinate" value={numericValue} />
+          </Stack>
+        )}
 
-      {/* Progress Bar */} 
-      <Stack spacing={2} sx={{ flexGrow: 1 }}>
-        <BorderLinearProgress variant="determinate" value={persentage} />
-      </Stack>
-
-      {/* Percentage Display */}
-      <div className="flex justify-end mt-6">
-        <button className="px-5 py-2 rounded-full 
-    bg-gradient-to-r from-cyan-500/20 to-cyan-400/10 
-    border border-cyan-400/30 
-    text-cyan-300 text-sm font-medium tracking-wide 
-    shadow-[0_0_15px_rgba(34,211,238,0.25)] 
-    hover:shadow-[0_0_25px_rgba(34,211,238,0.45)] 
-    backdrop-blur-md transition duration-300" >
-          {persentage}%
-        </button>
-      </div>
-      </div>
-    </>
+        {/* Percentage Display */}
+        <Typography variant="h6" mt={2}>
+          {percentage}
+        </Typography>
+      </CardContent>
+    </MUICard>
   );
 };
