@@ -24,7 +24,7 @@ const RailTrackSystem = () => {
     { section: "Section D", status: "Optimal", length: "2.7km", lastInspection: "3 days ago" },
   ];
 
-  const getStatusIcon = (status) => {
+  const getStatusIcon = (status: string) => {
     switch (status) {
       case "good": return <CheckCircle size={16} className="text-green-400" />;
       case "warning": return <AlertTriangle size={16} className="text-yellow-400" />;
@@ -33,14 +33,14 @@ const RailTrackSystem = () => {
     }
   };
 
-  const getTrendIcon = (trend) => {
+  const getTrendIcon = (trend: string) => {
     return <TrendingUp size={16} className={trend === "up" ? "text-green-400" : trend === "down" ? "text-red-400" : "text-yellow-400"} />;
   };
 
-  const corrosionData = [65, 59, 80, 81, 56, 55, 40, 45, 50, 55, 60, 65];
+  const corrosionData = [20, 59, 80, 91, 56, 65, 40, 45, 50, 55, 60, 65];
   const defectData = [12, 19, 8, 15, 12, 10, 14, 16, 12, 10, 8, 6];
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
+const maxCorrosion = Math.max(...corrosionData);
   return (
     <div className="overflow-x-hidden min-h-screen bg-gradient-to-br from-neutral-950 to-neutral-900 text-gray-100">
       <header className="w-full bg-neutral-900/80 backdrop-blur-sm px-6 py-4 flex justify-between items-center shadow-xl border-b border-neutral-700">
@@ -184,15 +184,20 @@ const RailTrackSystem = () => {
                 </div>
                 <div className="w-full h-[300px] bg-neutral-800/50 rounded-xl p-4 border border-neutral-700">
                   <div className="flex items-end justify-between h-full">
-                    {corrosionData.map((value, index) => (
-                      <div key={index} className="flex flex-col items-center">
-                        <div 
-                          className="w-8 bg-gradient-to-t from-cyan-500 to-cyan-300 rounded-t-lg transition-all duration-500 hover:from-cyan-400 hover:to-cyan-200"
-                          style={{ height: `${value}%` }}
-                        />
-                        <span className="text-xs text-gray-400 mt-2">{months[index]}</span>
-                      </div>
-                    ))}
+                   {corrosionData.map((value, index) => (
+  <div key={index} className="flex flex-col items-center">
+    <div 
+      className="w-8 bg-gradient-to-t from-cyan-500 to-cyan-300 rounded-t-lg transition-all duration-500 hover:from-cyan-400 hover:to-cyan-200"
+   style={{
+  height: `${(value / maxCorrosion) * 300}px`, // 300px matches the container height
+  minHeight: "20px",
+  maxHeight: "100px",
+}}
+    />
+    <span className="text-xs text-gray-400 mt-2">{months[index]}</span>
+    <span className="text-xs text-cyan-300 mt-1">{value}</span>
+  </div>
+))}
                   </div>
                 </div>
               </div>
@@ -209,7 +214,7 @@ const RailTrackSystem = () => {
                       <div key={index} className="flex flex-col items-center">
                         <div 
                           className="w-6 bg-gradient-to-t from-violet-500 to-violet-300 rounded-t-lg transition-all duration-500 hover:from-violet-400 hover:to-violet-200"
-                          style={{ height: `${value * 3}%` }}
+                          style={{ height: `${(value / maxCorrosion) * 300}px`, minHeight: "20px" }}
                         />
                         <span className="text-xs text-gray-400 mt-2">{months[index]}</span>
                       </div>
