@@ -16,7 +16,7 @@ public class GraphConstructor {
     @Autowired
     private TrainService trainService;
     public Map<String,Float> heuristicGenerator(){
-
+        return Map.of("A",2.1F,"B",3.2F);
     }
     public List<String> SortestPathUsingAstar(){
         Map<String,List<Edge>> graph = new HashMap<>();
